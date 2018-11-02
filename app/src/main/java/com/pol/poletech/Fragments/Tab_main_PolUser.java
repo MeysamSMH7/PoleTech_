@@ -48,7 +48,7 @@ public class Tab_main_PolUser extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_main_layout_poluser, container, false);
+        View view = inflater.inflate(R.layout.ft_main_layout_poltech, container, false);
 
         WorksSP = getActivity().getSharedPreferences("polTech", 0);
         haveJob = WorksSP.getInt("HaveJob_Tech", 0);
