@@ -10,14 +10,14 @@
     <!--<string name="LinkLoginTech">http://10.0.3.2/pol/checklogin.php</string>-->
     <string name="LinkLoginTech">http://amlakeyekta.ir/pol/Tech/selectTech.php</string>
     <string name="LinkForgetPass">http://amlakeyekta.ir/pol/Tech/sms/getPassSmS.php</string>
-    <string name="LinkWorks">http://amlakeyekta.ir/pol/req/requestTech.php</string>
-    <string name="LinkAcceptOne">http://amlakeyekta.ir/pol/req/requestTech_AcceptOne.php</string>
-    <string name="LinkWhatIsTheJobAcc2">http://amlakeyekta.ir/pol/req/requestWhatIsTheJobAcc2.php</string>
-    <string name="LinkAcc2">http://amlakeyekta.ir/pol/req/requestTech_AcceptTwo.php</string>
-    <string name="LinkWhatIsTheJobFinished">http://amlakeyekta.ir/pol/req/requestWhatIsTheJobFinished.php</string>
-    <string name="LinkFinishedWithChange">http://amlakeyekta.ir/pol/req/requestFinishWorkWithChange.php</string>
-    <string name="LinkWhatIsTheJobGetMoney">http://amlakeyekta.ir/pol/req/requestWhatIsTheJobGetMoney.php</string>
-    <string name="LinkGetMoney">http://amlakeyekta.ir/pol/req/requestGetMoneyTech.php</string>
+    <string name="LinkWorks">http://amlakeyekta.ir/pol/Req/requestTech.php</string>
+    <string name="LinkAcceptOne">http://amlakeyekta.ir/pol/Req/requestTech_AcceptOne.php</string>
+    <string name="LinkWhatIsTheJobAcc2">http://amlakeyekta.ir/pol/Req/requestWhatIsTheJobAcc2.php</string>
+    <string name="LinkAcc2">http://amlakeyekta.ir/pol/Req/requestTech_AcceptTwo.php</string>
+    <string name="LinkWhatIsTheJobFinished">http://amlakeyekta.ir/pol/Req/requestWhatIsTheJobFinished.php</string>
+    <string name="LinkFinishedWithChange">http://amlakeyekta.ir/pol/Req/requestFinishWorkWithChange.php</string>
+    <string name="LinkWhatIsTheJobGetMoney">http://amlakeyekta.ir/pol/Req/requestWhatIsTheJobGetMoney.php</string>
+    <string name="LinkGetMoney">http://amlakeyekta.ir/pol/Req/requestGetMoneyTech.php</string>
 
 
     <!--login Activity-->
