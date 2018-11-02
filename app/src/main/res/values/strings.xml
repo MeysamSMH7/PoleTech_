@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">PoleTech</string>
+
+    <!--Links-->
+
+    <!--Aliz IP     10.0A.3.2-->
+    <!--Sam IP      192.168.A43.80:7778-->
+    <!--Web IP      amlakeyekta.ir-->
+
+    <!--<string name="LinkLoginTech">http://10.0.3.2/pol/checklogin.php</string>-->
+    <string name="LinkLoginTech">http://amlakeyekta.ir/pol/Tech/selectTech.php</string>
+    <string name="LinkForgetPass">http://amlakeyekta.ir/pol/Tech/sms/getPassSmS.php</string>
+    <string name="LinkWorks">http://amlakeyekta.ir/pol/req/requestTech.php</string>
+    <string name="LinkAcceptOne">http://amlakeyekta.ir/pol/req/requestTech_AcceptOne.php</string>
+    <string name="LinkWhatIsTheJobAcc2">http://amlakeyekta.ir/pol/req/requestWhatIsTheJobAcc2.php</string>
+    <string name="LinkAcc2">http://amlakeyekta.ir/pol/req/requestTech_AcceptTwo.php</string>
+    <string name="LinkWhatIsTheJobFinished">http://amlakeyekta.ir/pol/req/requestWhatIsTheJobFinished.php</string>
+    <string name="LinkFinishedWithChange">http://amlakeyekta.ir/pol/req/requestFinishWorkWithChange.php</string>
+    <string name="LinkWhatIsTheJobGetMoney">http://amlakeyekta.ir/pol/req/requestWhatIsTheJobGetMoney.php</string>
+    <string name="LinkGetMoney">http://amlakeyekta.ir/pol/req/requestGetMoneyTech.php</string>
+
+
+    <!--login Activity-->
+    <string name="edtPhoneNumber">شماره تلفن</string>
+    <string name="edtPassword">رمز عبور</string>
+    <string name="btnLogin">ورود</string>
+    <string name="btnForgetPass">فراموشی رمز</string>
+
+
+    <!--Forget Pass-->
+    <string name="txtYourPass">رمز شما</string>
+    <string name="btnGetPass">دریافت رمز</string>
+    <string name="btnBack">بازگشت</string>
+
+    <!--Acc2 Activity-->
+    <string name="edtFirstPriceAcc2">لطفا قیمت اولیه را به تومان وارد نمایید</string>
+    <string name="edtPeriodWorkAcc2">لطفا بازه ی زمانی کار را به صورت ساعت وارد نمایید</string>
+    <string name="btnGetWorkAcc2">آره</string>
+    <string name="btnNoGetWorkAcc2">نه</string>
+
+    <!--Finished Activity-->
+    <string name="edtAddPrice">قیمت اضافه</string>
+    <string name="edtChangePriceRes">علت تغییر قیمت</string>
+    <string name="btnFinished">کار تمام است</string>
+
+    <!--GetMoney Activity-->
+    <string name="btnGetMoney">پول دریافت شد</string>
+
+
+</resources>
