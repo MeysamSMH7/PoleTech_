@@ -41,6 +41,7 @@ public class Tab_main_PolUser extends Fragment {
     List<String> listWorks, listWorksAlert;
     List<Integer> listIDPost;
     int IDTech = 0;
+
     String Skills = "", State = "";
 
     SharedPreferences WorksSP;
