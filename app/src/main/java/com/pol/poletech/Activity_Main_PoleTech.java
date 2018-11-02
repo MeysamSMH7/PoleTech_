@@ -33,6 +33,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
     Tab_WaitForMoney_PolTech fragment4;
     ViewGroup frameLayout;
 
+
     DrawerLayout drawerLayout;
     NavigationView navigationview;
     SharedPreferences sharedPreferences;
