@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,6 +18,7 @@ import com.pol.poletech.connectClasses.connect_Finished;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 
 public class Tab_FinishWork_PolTech extends Fragment {
@@ -27,8 +29,10 @@ public class Tab_FinishWork_PolTech extends Fragment {
 
     //public var **********************************************
     SharedPreferences preferencesFinishedTech;
-    int IDPost = 0;
+    int IDPost = 0,FinalStatus=0;
 
+    TextView txtJobNotDone;
+    LinearLayout linearJobDone;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -43,10 +47,10 @@ public class Tab_FinishWork_PolTech extends Fragment {
         txtShowWorkFinished = view.findViewById(R.id.txtShowWorkFinished);
         edtAddPriceFinished = view.findViewById(R.id.edtAddPriceFinished);
         edtChangePriceResFinished = view.findViewById(R.id.edtChangePriceResFinished);
-
+        txtJobNotDone = view.findViewById(R.id.txtJobNotDone);
+        linearJobDone = view.findViewById(R.id.linearJobDone);
 
         new connect_AccOne(getString(R.string.LinkWhatIsTheJobFinished), ishowAccOneRes, "", IDPost + "").execute();
-
 
 
 
@@ -117,6 +121,19 @@ public class Tab_FinishWork_PolTech extends Fragment {
 
                 edtAddPriceFinished.setText(ChengePrice + "");
                 edtChangePriceResFinished.setText(ChengePriceReason + "");
+
+
+                  FinalStatus = object.getInt("FinalStatus");
+
+                if (FinalStatus == 0) {
+                    txtJobNotDone.setVisibility(View.VISIBLE);
+                    linearJobDone.setVisibility(View.GONE);
+                    txtJobNotDone.setText("کار تایید نشده است");
+                } else {
+                    txtJobNotDone.setVisibility(View.GONE);
+                    linearJobDone.setVisibility(View.VISIBLE);
+                }
+
 
             }
         } catch (Exception e) {

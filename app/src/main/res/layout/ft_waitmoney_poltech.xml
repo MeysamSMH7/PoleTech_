@@ -1,21 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/linearGetMoney"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtShowWorkGetMoney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnGetMoney"
+            android:text="@string/btnGetMoney" />
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/txtShowWorkGetMoney"
+        android:id="@+id/txtGetMoney"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnGetMoney"
-        android:text="@string/btnGetMoney" />
-
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </LinearLayout>

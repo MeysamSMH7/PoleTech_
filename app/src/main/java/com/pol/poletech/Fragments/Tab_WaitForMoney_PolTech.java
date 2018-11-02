@@ -1,7 +1,6 @@
 package com.pol.poletech.Fragments;
 
 
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -10,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +27,8 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
     int IDTech = 0;
     TextView txtShowWorkGetMoney;
 
+    LinearLayout linearGetMoney;
+    TextView txtGetMoney;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,6 +37,11 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
         //open shared ******************************************************************
         preferencesGetMoneyTech = getActivity().getSharedPreferences("polTech", 0);
         IDPost = preferencesGetMoneyTech.getInt("reqID_Tech", 0);
+
+        //create objects of view *************************************************************************************
+        linearGetMoney = view.findViewById(R.id.linearGetMoney);
+        txtGetMoney = view.findViewById(R.id.txtGetMoney);
+
 
         txtShowWorkGetMoney = view.findViewById(R.id.txtShowWorkGetMoney);
         new connect_AccOne(getString(R.string.LinkWhatIsTheJobGetMoney), ishowAccOneRes, "", IDPost + "").execute();
@@ -48,7 +55,19 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
         @Override
         public void AccOneTechResult(String res) {
             if (IDTech == 0) {
-                GetJsonWhatsJobGetMoney(res);
+
+
+                if (res.contains("[]")) {
+                    txtGetMoney.setVisibility(View.VISIBLE);
+                    linearGetMoney.setVisibility(View.GONE);
+                    txtGetMoney.setText("کاری برای دریافت پول ندارید");
+                } else {
+                    GetJsonWhatsJobGetMoney(res);
+                    txtGetMoney.setVisibility(View.GONE);
+                    linearGetMoney.setVisibility(View.VISIBLE);
+                }
+
+
             } else {
                 Toast.makeText(getActivity(), res + "", Toast.LENGTH_SHORT).show();
             }
@@ -61,7 +80,7 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
         new connect_AccOne(getString(R.string.LinkGetMoney), ishowAccOneRes, IDTech + "", IDPost + "").execute();
 
         SharedPreferences.Editor editor = preferencesGetMoneyTech.edit();
-        editor.putInt("HaveJob_Tech",0);
+        editor.putInt("HaveJob_Tech", 0);
         editor.commit();
 
     }

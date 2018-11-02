@@ -3,33 +3,48 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.Tab_FinishWork_PolTech"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".Fragments.Tab_FinishWork_PolTech">
+
+    <LinearLayout
+        android:id="@+id/linearJobDone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtShowWorkFinished"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtAddPriceFinished"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edtAddPrice" />
+
+
+        <EditText
+            android:id="@+id/edtChangePriceResFinished"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edtChangePriceRes" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnFinished"
+            android:text="@string/btnFinished" />
+
+    </LinearLayout>
 
 
     <TextView
-        android:id="@+id/txtShowWorkFinished"
+        android:id="@+id/txtJobNotDone"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:id="@+id/edtAddPriceFinished"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/edtAddPrice" />
-
-
-    <EditText
-        android:id="@+id/edtChangePriceResFinished"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/edtChangePriceRes" />
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="btnFinished"
-        android:text="@string/btnFinished" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
 </LinearLayout>

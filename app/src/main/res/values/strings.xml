@@ -18,6 +18,7 @@
     <string name="LinkFinishedWithChange">http://amlakeyekta.ir/pol/Req/requestFinishWorkWithChange.php</string>
     <string name="LinkWhatIsTheJobGetMoney">http://amlakeyekta.ir/pol/Req/requestWhatIsTheJobGetMoney.php</string>
     <string name="LinkGetMoney">http://amlakeyekta.ir/pol/Req/requestGetMoneyTech.php</string>
+    <string name="LinkDoingJob">http://amlakeyekta.ir/pol/Req/requestTech_DoingJob.php</string>
 
 
     <!--login Activity-->
