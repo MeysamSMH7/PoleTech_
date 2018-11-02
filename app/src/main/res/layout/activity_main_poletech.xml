@@ -1,40 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Activity_Main_PoleTech"
     android:orientation="vertical">
 
-
-    <TextView
+    <FrameLayout
+        android:id="@+id/frameMainPolUser"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:onClick="Works"
-        android:text="کار های موجود" />
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/navMainPolUser"/>
 
-    <TextView
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navMainPolUser"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:onClick="WaitForAcc2"
-        android:text="در انتظار تایید دوم" />
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        app:itemBackground="@android:color/holo_red_light"
+        app:itemTextColor="@android:color/white"
+        app:menu="@menu/menu_bottom_nav" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:onClick="Finished"
-        android:text="کار تمام شده؟" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:onClick="WaitForMoney"
-        android:text="در انتظار دریافت پول" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:onClick="Working"
-        android:text="کار درحال انجام" />
-
-</LinearLayout>
+</RelativeLayout>

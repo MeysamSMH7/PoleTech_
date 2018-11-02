@@ -49,6 +49,9 @@ public class Activity_Works_PoleTech extends AppCompatActivity {
         listWorksAlert = new ArrayList<>();
         listIDPost = new ArrayList<>();
 
+
+        Toast.makeText(this, Skills+"", Toast.LENGTH_SHORT).show();
+
         new connect_Works(getString(R.string.LinkWorks), ishowWorksRes, Skills, State).execute();
 
         lstWorks = findViewById(R.id.lstWorks);
