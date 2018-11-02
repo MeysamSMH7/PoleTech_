@@ -20,15 +20,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 
-import com.pol.poletech.Fragments.Tab_WaitMoney_PolUser;
-import com.pol.poletech.Fragments.Tab_accOne_PolUser;
+import com.pol.poletech.Fragments.Tab_FinishWork_PolTech;
+import com.pol.poletech.Fragments.Tab_WaitForAcc2_PolTech;
+import com.pol.poletech.Fragments.Tab_WaitForMoney_PolTech;
 import com.pol.poletech.Fragments.Tab_main_PolUser;
 
 
 public class Activity_Main_PoleTech extends AppCompatActivity {
     Tab_main_PolUser fragment1;
-    Tab_accOne_PolUser fragment2;
-    Tab_WaitMoney_PolUser fragment3;
+    Tab_WaitForAcc2_PolTech fragment2;
+    Tab_FinishWork_PolTech fragment3;
+    Tab_WaitForMoney_PolTech fragment4;
     ViewGroup frameLayout;
 
     DrawerLayout drawerLayout;
@@ -44,8 +46,9 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
 
         frameLayout = (ViewGroup) findViewById(R.id.frameMainPolUser);
         fragment1 = new Tab_main_PolUser();
-        fragment2 = new Tab_accOne_PolUser();
-        fragment3 = new Tab_WaitMoney_PolUser();
+        fragment2 = new Tab_WaitForAcc2_PolTech();
+        fragment3 = new Tab_FinishWork_PolTech();
+        fragment4 = new Tab_WaitForMoney_PolTech();
 
         BottomNavigationView navMainPolUser = findViewById(R.id.navMainPolUser);
 
@@ -67,13 +70,18 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
                         transaction.commit();
                         break;
 
-                    case R.id.AccOneFrame:
+                    case R.id.Tab_WaitForAcc2_PolTech:
                         transaction.replace(R.id.frameMainPolUser, fragment2);
                         transaction.commit();
                         break;
 
-                    case R.id.WaitForMoneyFrame:
+                    case R.id.Tab_FinishWork_PolTech:
                         transaction.replace(R.id.frameMainPolUser, fragment3);
+                        transaction.commit();
+                        break;
+
+                    case R.id.Tab_WaitForMoney_PolTech:
+                        transaction.replace(R.id.frameMainPolUser, fragment4);
                         transaction.commit();
                         break;
                 }

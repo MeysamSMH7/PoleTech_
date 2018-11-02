@@ -40,7 +40,7 @@ public class Tab_WaitForAcc2_PolTech extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_waitmoney_poluser, container, false);
+        View view = inflater.inflate(R.layout.ft_acc2_poltech, container, false);
 
         //open shared ******************************************************************
         preferencesAcc2Tech = getActivity().getSharedPreferences("polTech", 0);

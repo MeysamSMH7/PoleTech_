@@ -30,7 +30,7 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_accone_poluser, container, false);
+        View view = inflater.inflate(R.layout.ft_waitmoney_poltech, container, false);
 
         //open shared ******************************************************************
         preferencesGetMoneyTech = getActivity().getSharedPreferences("polTech", 0);

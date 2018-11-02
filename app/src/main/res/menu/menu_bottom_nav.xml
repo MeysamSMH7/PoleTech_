@@ -8,14 +8,20 @@
         />
 
     <item
-        android:id="@+id/AccOneFrame"
+        android:id="@+id/Tab_WaitForAcc2_PolTech"
         android:icon="@mipmap/ic_launcher"
         android:title="در انتظار تایید"
         />
 
     <item
-        android:id="@+id/WaitForMoneyFrame"
+        android:id="@+id/Tab_FinishWork_PolTech"
         android:icon="@mipmap/ic_launcher"
-        android:title="در انتظار پرداخت"
+        android:title="اتمام کار ؟"
+        />
+
+    <item
+        android:id="@+id/Tab_WaitForMoney_PolTech"
+        android:icon="@mipmap/ic_launcher"
+        android:title="پول گرفتی؟"
         />
 </menu>

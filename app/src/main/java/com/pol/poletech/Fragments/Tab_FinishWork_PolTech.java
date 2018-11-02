@@ -1,9 +1,9 @@
 package com.pol.poletech.Fragments;
 
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +11,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.pol.poletech.R;
 import com.pol.poletech.connectClasses.connect_AccOne;
 import com.pol.poletech.connectClasses.connect_Finished;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 
 public class Tab_FinishWork_PolTech extends Fragment {
 
@@ -29,11 +29,10 @@ public class Tab_FinishWork_PolTech extends Fragment {
     SharedPreferences preferencesFinishedTech;
     int IDPost = 0;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_finishwork_poltech, container, false);
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.ft_finishwork_poltech, container, false);
 
         //open shared ******************************************************************
         preferencesFinishedTech = getActivity().getSharedPreferences("polTech", 0);

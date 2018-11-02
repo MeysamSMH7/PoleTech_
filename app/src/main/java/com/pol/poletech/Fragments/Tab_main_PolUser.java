@@ -49,10 +49,12 @@ public class Tab_main_PolUser extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.ft_main_layout_poluser, container, false);
+
         WorksSP = getActivity().getSharedPreferences("polTech", 0);
         haveJob = WorksSP.getInt("HaveJob_Tech", 0);
 
         if (haveJob == 0){
+
             IDTech = WorksSP.getInt("ID_Tech", 0);
             Skills = WorksSP.getString("SkillName_Tech", "خالی");
             State = WorksSP.getString("StateName_Tech", "خالی");
