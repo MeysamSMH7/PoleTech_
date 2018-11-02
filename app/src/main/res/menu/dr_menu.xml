@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/first"
+        android:icon="@mipmap/ic_launcher"
+        android:title="انتخاب شهر" />
+    <item
+        android:id="@+id/first2"
+        android:icon="@mipmap/ic_launcher"
+        android:title="درباره ی ما" />
+    <item
+        android:id="@+id/first3"
+        android:icon="@mipmap/ic_launcher"
+        android:title="ارتباط با ما" />
+    <item
+        android:id="@+id/first5"
+        android:icon="@mipmap/ic_launcher"
+        android:title="قوانین و مقررات" />
+
+    <item
+        android:id="@+id/first6"
+        android:icon="@mipmap/ic_launcher"
+        android:title="تماس با پشتیبان" />
+    <item
+        android:id="@+id/first7"
+        android:icon="@mipmap/ic_launcher"
+        android:title="دعوت به همکاری" />
+
+    <item
+        android:id="@+id/itmLogOff"
+        android:icon="@mipmap/ic_launcher"
+        android:title="خروج" />
+
+</menu>
