@@ -1,7 +1,5 @@
 package com.pol.poletech;
 
-
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,9 +38,9 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_poletech);
+        setContentView(R.layout.page_toolbar_nv);
 
-        sharedPreferences = getSharedPreferences("polUser", 0);
+        sharedPreferences = getSharedPreferences("polTech", 0);
 
         frameLayout = (ViewGroup) findViewById(R.id.frameMainPolUser);
         fragment1 = new Tab_main_PolUser();
@@ -84,8 +82,117 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
         });
 
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_jafar);
+        setSupportActionBar(toolbar);
+
+        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
+        navigationview = (NavigationView) findViewById(R.id.navigationview);
+        navigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id) {
+
+                    case R.id.itmLogOff:
+
+                        AlertDialogLogout();
+
+                        break;
+
+                    case R.id.first7:
+
+
+
+                        break;
+                }
+                drawerLayout.closeDrawer(Gravity.RIGHT);
+                return true;
+            }
+        });
+
 
     }
 
 
+    private void AlertDialogLogout() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.create();
+        builder.setTitle("خروج از حساب کاربری");
+        builder.setMessage("آیا میخواهید از حساب کاربریتان خارج شوید؟");
+        builder.setPositiveButton("آره", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                editor.putInt("ID_User", 0);
+                editor.putString("FirstName_User", null);
+                editor.putString("LastName_User", null);
+                editor.putInt("PhoneNum_User", 0);
+                editor.putString("StateName_User", null);
+                editor.putString("CityName_User", null);
+                editor.putInt("CodPosty_User", 0);
+                editor.putString("Address_User", null);
+                editor.putString("Password_User", null);
+                editor.putBoolean("statusLogin?", false);
+                editor.apply();
+
+            }
+        });
+
+        builder.setNegativeButton("خیر", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.menu_dr) {
+            drawerLayout.openDrawer(Gravity.RIGHT);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+            drawerLayout.closeDrawer(Gravity.RIGHT);
+        } else {
+            super.onBackPressed();
+        }
+
+    }
+
+    private void getVersionInfo() {
+        String versionName = "";
+        int versionCode = -1;
+        try {
+            PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            versionName = packageInfo.versionName;
+            versionCode = packageInfo.versionCode;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        //Toast.makeText(this, String.format("Version name = %s \nVersion code = %d", versionName, versionCode) + "", Toast.LENGTH_SHORT).show();
+    }
+
+
+
 }
+

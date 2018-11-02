@@ -7,6 +7,9 @@
     tools:context=".Activity_Main_PoleTech"
     android:orientation="vertical">
 
+    <include layout="@layout/custom_tolbar" />
+
+
     <FrameLayout
         android:id="@+id/frameMainPolUser"
         android:layout_width="match_parent"
