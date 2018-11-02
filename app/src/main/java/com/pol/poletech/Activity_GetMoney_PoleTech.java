@@ -50,6 +50,9 @@ public class Activity_GetMoney_PoleTech extends AppCompatActivity {
 
         new connect_AccOne(getString(R.string.LinkGetMoney), ishowAccOneRes, IDTech + "", IDPost + "").execute();
 
+        SharedPreferences.Editor editor = preferencesGetMoneyTech.edit();
+        editor.putInt("HaveJob_Tech",0);
+        editor.commit();
 
     }
 
