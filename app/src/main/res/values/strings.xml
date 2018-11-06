@@ -19,6 +19,8 @@
     <string name="LinkWhatIsTheJobGetMoney">http://amlakeyekta.ir/pol/Req/requestWhatIsTheJobGetMoney.php</string>
     <string name="LinkGetMoney">http://amlakeyekta.ir/pol/Req/requestGetMoneyTech.php</string>
     <string name="LinkDoingJob">http://amlakeyekta.ir/pol/Req/requestTech_DoingJob.php</string>
+    <string name="LinkTicket">http://amlakeyekta.ir/pol/Tech/sendticket.php</string>
+    <string name="LinkSelectTicket">http://amlakeyekta.ir/pol/Tech/selectticket.php</string>
 
 
     <!--login Activity-->
@@ -51,9 +53,17 @@
     <string name="ToastCheckNetTitle">مشکل اینترنت!</string>
     <string name="ToastCheckNetMessage">لطفا اتصال خود به اینترنت را چک کنید</string>
 
+    <!--Menu-->
     <string name="FAQ">قوانین و مقررات</string>
     <string name="itmAboutUs">درباره ما</string>
     <string name="itmTellUs">ارسال تیکت</string>
     <string name="itmLogOff">خروج</string>
+
+    <!--Toast-->
+    <string name="ToastFillAllBlanks">لطفا تمام فیلد های مورد نظر را پر کنید</string>
+
+    <!-- Answer Ticket-->
+    <string name="AnswerNotTicket">به تیکت شما پاسخ داده نشده</string>
+    <string name="AnswerTicket">به تیکت شما پاسخ داده شده</string>
 
 </resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity_Ticket_PolTech">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/spnSubjectTicket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edtCustomSubjectTicket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="موضوع خود را وارد کنید (حداکثر 20 کارکتر)"
+            android:visibility="gone" />
+
+
+        <EditText
+            android:id="@+id/edtTextTicket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="متن خود را وارد کنید" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:onClick="btnBackTicket"
+                android:text="بازگشت" />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:onClick="btnSendTicket"
+                android:text="ارسال" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <ListView
+        android:id="@+id/lstSentTicket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+</LinearLayout>

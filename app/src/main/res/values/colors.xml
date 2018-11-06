@@ -4,6 +4,10 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <!--Answer Ticket-->
+    <color name="colorNotAnswer">#ff0000</color>
+    <color name="colorAnswer">#000000</color>
+
     <!--Text Forget Password-->
     <color name="ForgetPassColor">#1f75df</color>
 

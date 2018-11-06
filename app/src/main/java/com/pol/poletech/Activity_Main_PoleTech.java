@@ -218,7 +218,8 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
 
             case R.id.itmTellUs:
 
-                Toast.makeText(this, "ارسال تیکت", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Activity_Main_PoleTech.this,Activity_Ticket_PolTech.class);
+                startActivity(intent);
                 break;
 
             case R.id.itmLogOff:
