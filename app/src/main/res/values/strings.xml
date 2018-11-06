@@ -47,8 +47,13 @@
     <!--GetMoney Activity-->
     <string name="btnGetMoney">پول دریافت شد</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--Check Net-->
+    <string name="ToastCheckNetTitle">مشکل اینترنت!</string>
+    <string name="ToastCheckNetMessage">لطفا اتصال خود به اینترنت را چک کنید</string>
 
+    <string name="FAQ">قوانین و مقررات</string>
+    <string name="itmAboutUs">درباره ما</string>
+    <string name="itmTellUs">ارسال تیکت</string>
+    <string name="itmLogOff">خروج</string>
 
 </resources>

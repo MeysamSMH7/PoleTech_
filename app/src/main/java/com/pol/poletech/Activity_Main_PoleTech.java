@@ -19,11 +19,13 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.pol.poletech.Fragments.Tab_FinishWork_PolTech;
 import com.pol.poletech.Fragments.Tab_WaitForAcc2_PolTech;
 import com.pol.poletech.Fragments.Tab_WaitForMoney_PolTech;
 import com.pol.poletech.Fragments.Tab_main_PolUser;
+import com.pol.poletech.classes.checkInternet;
 
 
 public class Activity_Main_PoleTech extends AppCompatActivity {
@@ -33,15 +35,18 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
     Tab_WaitForMoney_PolTech fragment4;
     ViewGroup frameLayout;
 
-
     DrawerLayout drawerLayout;
     NavigationView navigationview;
     SharedPreferences sharedPreferences;
+
+    checkInternet internet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_toolbar_nv);
+
+        internet = new checkInternet(this);
 
         sharedPreferences = getSharedPreferences("polTech", 0);
 
@@ -100,20 +105,9 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
-                switch (id) {
 
-                    case R.id.itmLogOff:
+                switchNavigationView(id);
 
-                        AlertDialogLogout();
-
-                        break;
-
-                    case R.id.first7:
-
-
-
-                        break;
-                }
                 drawerLayout.closeDrawer(Gravity.RIGHT);
                 return true;
             }
@@ -201,6 +195,53 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
         //Toast.makeText(this, String.format("Version name = %s \nVersion code = %d", versionName, versionCode) + "", Toast.LENGTH_SHORT).show();
     }
 
+    private void checkNet() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Activity_Main_PoleTech.this);
+        builder.setTitle(getString(R.string.ToastCheckNetTitle));
+        builder.setMessage(getString(R.string.ToastCheckNetMessage));
+        builder.show();
+    }
+
+    private void switchNavigationView(int ID) {
+
+        switch (ID) {
+            case R.id.itmAboutUs:
+
+                AlertDialogDraweLayout("درباره ما", "متن درباره ما");
+                break;
+
+            case R.id.FAQ:
+
+                AlertDialogDraweLayout("قوانین", "متن قوانین");
+                break;
+
+
+            case R.id.itmTellUs:
+
+                Toast.makeText(this, "ارسال تیکت", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.itmLogOff:
+
+                if (!internet.CheckNetworkConnection()) {
+                    checkNet();
+                } else {
+                    AlertDialogLogout();
+                }
+                break;
+        }
+
+    }
+
+    private void AlertDialogDraweLayout(String Title, String Message) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(Activity_Main_PoleTech.this);
+        builder.setTitle(Title);
+        builder.setMessage(Message);
+        builder.create();
+        builder.show();
+
+    }
 
 
 }
