@@ -61,6 +61,8 @@
 
     <!--Toast-->
     <string name="ToastFillAllBlanks">لطفا تمام فیلد های مورد نظر را پر کنید</string>
+    <string name="ToastTicketSend">تیکت شما با موفقیت ارسال شد</string>
+    <string name="ToastTicketNotSend">تیکت شما ارسا نشد!</string>
 
     <!-- Answer Ticket-->
     <string name="AnswerNotTicket">به تیکت شما پاسخ داده نشده</string>

@@ -31,20 +31,20 @@ import java.util.List;
 
 public class Activity_Ticket_PolTech extends AppCompatActivity {
 
-    AlertDialog ShowTicketAlert;
-    Spinner spnSubjectTicket;
-    EditText edtCustomSubjectTicket, edtTextTicket;
-    ListView lstSentTicket;
+    private AlertDialog ShowTicketAlert;
+    private Spinner spnSubjectTicket;
+    private EditText edtCustomSubjectTicket, edtTextTicket;
+    private ListView lstSentTicket;
 
-    String[] subjects = {"انتخاب کنید", "مشکل1", "مشکل2", "مشکل3", "مشکل4", "متفرقه"};
-    ArrayAdapter adapterTicket;
-    String Subject = "", SubjectCustom = "", text = "", Year = "", Month = "", Day = "", IDTech = "", Matn = "", MatnAlet = "";
-    CalendarTool calendarTool;
-    SharedPreferences preferencesTicketTech;
-    ArrayAdapter adapterSentTicket;
+    private String[] subjects = {"انتخاب کنید", "مشکل1", "مشکل2", "مشکل3", "مشکل4", "متفرقه"};
+    private ArrayAdapter adapterTicket;
+    private String Subject = "", SubjectCustom = "", text = "", Year = "", Month = "", Day = "", IDTech = "", Matn = "", MatnAlet = "";
+    private CalendarTool calendarTool;
+    private SharedPreferences preferencesTicketTech;
+    private ArrayAdapter adapterSentTicket;
 
-    List<String> listTicket, listTicketAlert;
-    List<Integer> listTicketInt;
+    private List<String> listTicket, listTicketAlert;
+    private List<Integer> listTicketInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,7 +146,11 @@ public class Activity_Ticket_PolTech extends AppCompatActivity {
     connect_Ticket.IshowTicketRes ishowTicketRes = new connect_Ticket.IshowTicketRes() {
         @Override
         public void TicketTechResult(String res) {
-            Toast.makeText(Activity_Ticket_PolTech.this, res + "", Toast.LENGTH_SHORT).show();
+            if (res.contains("OK!")) {
+                Toast.makeText(Activity_Ticket_PolTech.this, getString(R.string.ToastTicketSend), Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(Activity_Ticket_PolTech.this, getString(R.string.ToastTicketNotSend), Toast.LENGTH_SHORT).show();
+            }
         }
     };
 
@@ -160,7 +164,6 @@ public class Activity_Ticket_PolTech extends AppCompatActivity {
     connect_AccOne.IshowAccOneRes ishowAccOneRes = new connect_AccOne.IshowAccOneRes() {
         @Override
         public void AccOneTechResult(String res) {
-
             if (!(res.contains("[]") || res.contains("Nothing!"))) {
                 GetJsonTicketSent(res);
 
@@ -184,12 +187,8 @@ public class Activity_Ticket_PolTech extends AppCompatActivity {
                         return convertView;
                     }
                 };
-
                 lstSentTicket.setAdapter(adapterSentTicket);
-
             }
-
-
         }
     };
 
