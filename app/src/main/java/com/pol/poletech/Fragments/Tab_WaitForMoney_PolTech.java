@@ -1,6 +1,5 @@
 package com.pol.poletech.Fragments;
 
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -9,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,16 +19,15 @@ import com.pol.poletech.connectClasses.connect_AccOne;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-
 public class Tab_WaitForMoney_PolTech extends Fragment {
+
+    Button btnGetMoney;
+    LinearLayout linearGetMoney;
+    TextView txtShowWorkGetMoney, txtGetMoney;
 
     SharedPreferences preferencesGetMoneyTech;
     int IDPost = 0;
     int IDTech = 0;
-    TextView txtShowWorkGetMoney;
-
-    LinearLayout linearGetMoney;
-    TextView txtGetMoney;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -41,11 +40,24 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
         //create objects of view *************************************************************************************
         linearGetMoney = view.findViewById(R.id.linearGetMoney);
         txtGetMoney = view.findViewById(R.id.txtGetMoney);
+        btnGetMoney = view.findViewById(R.id.btnGetMoney);
 
 
         txtShowWorkGetMoney = view.findViewById(R.id.txtShowWorkGetMoney);
         new connect_AccOne(getString(R.string.LinkWhatIsTheJobGetMoney), ishowAccOneRes, "", IDPost + "").execute();
 
+        btnGetMoney.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IDTech = preferencesGetMoneyTech.getInt("ID_Tech", 0);
+
+                new connect_AccOne(getString(R.string.LinkGetMoney), ishowAccOneRes, IDTech + "", IDPost + "").execute();
+
+                SharedPreferences.Editor editor = preferencesGetMoneyTech.edit();
+                editor.putInt("HaveJob_Tech", 0);
+                editor.commit();
+            }
+        });
 
         return view;
     }
@@ -55,8 +67,6 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
         @Override
         public void AccOneTechResult(String res) {
             if (IDTech == 0) {
-
-
                 if (res.contains("[]")) {
                     txtGetMoney.setVisibility(View.VISIBLE);
                     linearGetMoney.setVisibility(View.GONE);
@@ -67,23 +77,9 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
                     linearGetMoney.setVisibility(View.VISIBLE);
                 }
 
-
-            } else {
-                Toast.makeText(getActivity(), res + "", Toast.LENGTH_SHORT).show();
             }
         }
     };
-
-    public void btnGetMoney(View view) {
-        IDTech = preferencesGetMoneyTech.getInt("ID_Tech", 0);
-
-        new connect_AccOne(getString(R.string.LinkGetMoney), ishowAccOneRes, IDTech + "", IDPost + "").execute();
-
-        SharedPreferences.Editor editor = preferencesGetMoneyTech.edit();
-        editor.putInt("HaveJob_Tech", 0);
-        editor.commit();
-
-    }
 
 
     private void GetJsonWhatsJobGetMoney(String res) {

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -24,15 +25,15 @@ import org.w3c.dom.Text;
 public class Tab_FinishWork_PolTech extends Fragment {
 
     //var Views ************************************************
-    TextView txtShowWorkFinished;
+    TextView txtShowWorkFinished, txtJobNotDone;
     EditText edtAddPriceFinished, edtChangePriceResFinished;
+    Button btnFinished;
+    LinearLayout linearJobDone;
 
     //public var **********************************************
     SharedPreferences preferencesFinishedTech;
-    int IDPost = 0,FinalStatus=0;
+    int IDPost = 0, AccpectPriceUser = 0, FinalStatus = 0;
 
-    TextView txtJobNotDone;
-    LinearLayout linearJobDone;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,11 +50,22 @@ public class Tab_FinishWork_PolTech extends Fragment {
         edtChangePriceResFinished = view.findViewById(R.id.edtChangePriceResFinished);
         txtJobNotDone = view.findViewById(R.id.txtJobNotDone);
         linearJobDone = view.findViewById(R.id.linearJobDone);
+        btnFinished = view.findViewById(R.id.btnFinished);
 
         new connect_AccOne(getString(R.string.LinkWhatIsTheJobFinished), ishowAccOneRes, "", IDPost + "").execute();
 
 
+        btnFinished.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ChengePrice = edtAddPriceFinished.getText().toString() + "";
+                String ChengePriceReason = edtChangePriceResFinished.getText().toString();
+                new connect_Finished(getString(R.string.LinkFinishedWithChange), ishowFinishedRes, IDPost + "", ChengePrice, ChengePriceReason).execute();
 
+            }
+        });
+
+        Toast.makeText(getContext(), "1111", Toast.LENGTH_SHORT).show();
         return view;
     }
 
@@ -64,12 +76,6 @@ public class Tab_FinishWork_PolTech extends Fragment {
         }
     };
 
-    public void btnFinished(View view) {
-        String ChengePrice = edtAddPriceFinished.getText().toString() + "";
-        String ChengePriceReason = edtChangePriceResFinished.getText().toString();
-        new connect_Finished(getString(R.string.LinkFinishedWithChange), ishowFinishedRes, IDPost + "", ChengePrice, ChengePriceReason).execute();
-
-    }
 
     connect_Finished.IshowFinishedRes ishowFinishedRes = new connect_Finished.IshowFinishedRes() {
         @Override
@@ -123,15 +129,19 @@ public class Tab_FinishWork_PolTech extends Fragment {
                 edtChangePriceResFinished.setText(ChengePriceReason + "");
 
 
-                  FinalStatus = object.getInt("FinalStatus");
+                AccpectPriceUser = object.getInt("AccpectPriceUser");
+                FinalStatus = object.getInt("FinalStatus");
 
-                if (FinalStatus == 0) {
+                if (AccpectPriceUser == 0) {
                     txtJobNotDone.setVisibility(View.VISIBLE);
                     linearJobDone.setVisibility(View.GONE);
-                    txtJobNotDone.setText("کار تایید نشده است");
-                } else {
+                 } else {
                     txtJobNotDone.setVisibility(View.GONE);
                     linearJobDone.setVisibility(View.VISIBLE);
+
+                    if (FinalStatus == 1) {
+                        Toast.makeText(getContext(), "تغییر دوباره ی قیمت", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
 

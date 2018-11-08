@@ -40,6 +40,7 @@
     <string name="edtPeriodWorkAcc2">لطفا بازه ی زمانی کار را به صورت ساعت وارد نمایید</string>
     <string name="btnGetWorkAcc2">آره</string>
     <string name="btnNoGetWorkAcc2">نه</string>
+    <string name="txtNotingToShow">کاری برای تعیین قیمت وجود ندارد</string>
 
     <!--Finished Activity-->
     <string name="edtAddPrice">قیمت اضافه</string>

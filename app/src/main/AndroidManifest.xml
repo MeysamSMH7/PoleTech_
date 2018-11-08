@@ -22,10 +22,6 @@
         <activity android:name=".Activity_Wellcome_PoleTech" />
         <activity android:name=".Activity_Login_PoleTech" />
         <activity android:name=".Activity_Main_PoleTech" />
-        <activity android:name=".Activity_Works_PoleTech" />
-        <activity android:name=".Activity_WaitAcc2_PoleTech" />
-        <activity android:name=".Activity_Finished_PoleTech" />
-        <activity android:name=".Activity_GetMoney_PoleTech" />
         <activity android:name=".Activity_Ticket_PolTech"></activity>
     </application>
 

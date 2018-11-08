@@ -35,7 +35,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="btnFinished"
+            android:id="@+id/btnFinished"
             android:text="@string/btnFinished" />
 
     </LinearLayout>
@@ -45,6 +45,7 @@
         android:id="@+id/txtJobNotDone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="gone" />
+        android:text="کار تایید نشده است"
+        android:visibility="visible" />
 
 </LinearLayout>

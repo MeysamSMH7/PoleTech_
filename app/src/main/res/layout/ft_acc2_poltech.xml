@@ -1,49 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <TextView
-        android:id="@+id/txtShowWorkAcc2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:hint="@string/edtFirstPriceAcc2"
-        android:id="@+id/edtFirstPriceAcc2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <EditText
-        android:hint="@string/edtPeriodWorkAcc2"
-        android:id="@+id/edtPeriodWorkAcc2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <LinearLayout
-        android:weightSum="10"
-        android:gravity="center"
+        android:id="@+id/txtNotingAcc2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:text="@string/txtNotingToShow"/>
 
-        <Button
-            android:text="@string/btnNoGetWorkAcc2"
-            android:onClick="btnNoGetWorkAcc2"
-            android:layout_weight="4"
+    <LinearLayout
+        android:id="@+id/linearacc2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txtShowWorkAcc2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:text="@string/btnGetWorkAcc2"
-            android:layout_weight="4"
-            android:onClick="btnGetWorkAcc2"
+        <EditText
+            android:id="@+id/edtFirstPriceAcc2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/edtFirstPriceAcc2" />
+
+
+        <EditText
+            android:id="@+id/edtPeriodWorkAcc2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edtPeriodWorkAcc2" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <Button
+                android:id="@+id/btnNoGetWorkAcc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/btnNoGetWorkAcc2" />
+
+            <Button
+                android:id="@+id/btnGetWorkAcc2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="@string/btnGetWorkAcc2" />
+
+
+        </LinearLayout>
 
 
     </LinearLayout>
+
 
 </LinearLayout>

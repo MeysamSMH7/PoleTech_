@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +19,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.pol.poletech.Activity_GetMoney_PoleTech;
-import com.pol.poletech.Activity_Works_PoleTech;
 import com.pol.poletech.R;
 import com.pol.poletech.connectClasses.connect_AccOne;
 import com.pol.poletech.connectClasses.connect_Works;
@@ -37,16 +34,15 @@ public class Tab_main_PolUser extends Fragment {
 
     AlertDialog ShowWorksAlert;
     ListView lstWorks;
+    TextView txtHaveJob;
+
     ArrayAdapter adapterWorks;
+    SharedPreferences mainShared;
     List<String> listWorks, listWorksAlert;
     List<Integer> listIDPost;
     int IDTech = 0, IDPost = 0;
-    TextView txtHaveJob;
-
-    String Skills = "", State = "";
-
-    SharedPreferences mainShared;
     int haveJob = 0;
+    String Skills = "", State = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,12 +59,10 @@ public class Tab_main_PolUser extends Fragment {
             lstWorks.setVisibility(View.VISIBLE);
             txtHaveJob.setVisibility(View.GONE);
             DontHaveJob();
-            Toast.makeText(getContext(), haveJob + "\nN", Toast.LENGTH_SHORT).show();
         } else {
             lstWorks.setVisibility(View.GONE);
             txtHaveJob.setVisibility(View.VISIBLE);
             HaveJob();
-            Toast.makeText(getContext(), haveJob + "\nY", Toast.LENGTH_SHORT).show();
         }
 
 
