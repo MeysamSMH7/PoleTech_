@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="@color/btnRippleLogin"
+    tools:ignore="NewApi">
+
+
+    <item>
+        <shape>
+            <gradient android:startColor="@color/btnStartColorLogin" android:endColor="@color/btnEndColorLogin" android:angle="270" />
+            <stroke   android:width="1px"          android:color="@color/colorWhite" />
+            <corners android:bottomLeftRadius="8dp"
+                android:bottomRightRadius="8dp"
+                android:topLeftRadius="8dp"
+                android:topRightRadius="8dp"/>
+            <padding  android:left="10dp"  android:top="10dp" android:right="10dp" android:bottom="10dp" />
+        </shape>
+    </item>
+
+</ripple>
+
+
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--<item android:state_pressed="true">-->
+    <!--<shape android:shape="rectangle">-->
+        <!--<solid android:color="@color/btnEndColorReg" />-->
+    <!--</shape>-->
+<!--</item>-->
+<!--<item android:state_focused="true">-->
+    <!--<shape android:shape="rectangle">-->
+        <!--<stroke android:color="@color/colorPrimaryDark" />-->
+    <!--</shape>-->
+<!--</item>-->
+<!--<item android:drawable="@color/colorAccent" />-->
+<!--</selector>-->

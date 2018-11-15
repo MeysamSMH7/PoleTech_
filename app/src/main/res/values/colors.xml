@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1976D2</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
 
     <!--Answer Ticket-->
     <color name="colorNotAnswer">#ff0000</color>
@@ -17,7 +19,24 @@
     <color name="dot_dark_Screen2">#92b695</color>
     <color name="dot_dark_Screen3">#b392b6</color>
 
-    <!-- Active Colors -->
+    <!--login button-->
+    <color name="btnStartColorLogin">#1976D2</color>
+    <color name="btnEndColorLogin">#2196F3</color>
+    <color name="btnRippleLogin">#FFC107</color>
+
+
+    <!--register button-->
+    <color name="btnStartColorReg">#FFC107</color>
+    <color name="btnEndColorReg">#ffd042</color>
+    <color name="btnRippleReg">#2196F3</color>
+
+
+    <!--editText Login-->
+    <color name="edtColorNormal">#989898</color>
+    <color name="edtColorActivated">#4169E1</color>
+
+
+    <!-- Welcom Colors -->
     <color name="dot_light_Screen1">#1f75df</color>
     <color name="dot_light_Screen2">#14e626</color>
     <color name="dot_light_Screen3">#d433e2</color>
@@ -33,6 +52,5 @@
         <item>@color/dot_light_Screen2</item>
         <item>@color/dot_light_Screen3</item>
     </array>
-
-
 </resources>
+

@@ -27,7 +27,7 @@
     <string name="edtPhoneNumber">شماره تلفن</string>
     <string name="edtPassword">رمز عبور</string>
     <string name="btnLogin">ورود</string>
-    <string name="btnForgetPass">فراموشی رمز</string>
+    <string name="txtForgetPass">رمز خود را فراموش کرده اید؟</string>
 
 
     <!--Forget Pass-->

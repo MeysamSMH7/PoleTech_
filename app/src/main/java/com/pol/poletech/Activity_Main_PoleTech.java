@@ -19,6 +19,7 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.pol.poletech.Fragments.Tab_FinishWork_PolTech;
@@ -34,6 +35,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
     Tab_FinishWork_PolTech fragment3;
     Tab_WaitForMoney_PolTech fragment4;
     ViewGroup frameLayout;
+    BottomNavigationView navMainPolUser;
 
     DrawerLayout drawerLayout;
     NavigationView navigationview;
@@ -56,7 +58,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
         fragment3 = new Tab_FinishWork_PolTech();
         fragment4 = new Tab_WaitForMoney_PolTech();
 
-        BottomNavigationView navMainPolUser = findViewById(R.id.navMainPolUser);
+          navMainPolUser = findViewById(R.id.navMainPolUser);
 
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -113,8 +115,8 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
             }
         });
 
-
     }
+
 
 
     private void AlertDialogLogout() {
@@ -218,7 +220,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
 
             case R.id.itmTellUs:
 
-                Intent intent = new Intent(Activity_Main_PoleTech.this,Activity_Ticket_PolTech.class);
+                Intent intent = new Intent(Activity_Main_PoleTech.this, Activity_Ticket_PolTech.class);
                 startActivity(intent);
                 break;
 

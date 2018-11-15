@@ -1,12 +1,19 @@
 package com.pol.poletech;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.icu.text.UnicodeSetSpanner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.pol.poletech.connectClasses.connect_ForgetPass;
@@ -19,7 +26,10 @@ public class Activity_Login_PoleTech extends AppCompatActivity {
 
     //var of elements
     EditText edtPhoneNumLogin, edtPassLogin, edtPhoneNumberForget;
-    LinearLayout LinearLogin, LinearRegForgetPass;
+    LinearLayout LinearLogin, LinearRegForgetPass, linearUp,linearBtnForget;
+    Button btnLoginOnClick, btnBackOnClickForgetPass, btnGetPass;
+    TextView txtForgetPass;
+    ImageView imgPhone, imgPass, imgTop,imgForgetPass;
 
     //public var
     SharedPreferences preferencesLoginTech;
@@ -38,15 +48,65 @@ public class Activity_Login_PoleTech extends AppCompatActivity {
         edtPhoneNumberForget = findViewById(R.id.edtPhoneNumberForget);
         LinearLogin = findViewById(R.id.LinearLogin);
         LinearRegForgetPass = findViewById(R.id.LinearRegForgetPass);
+        linearBtnForget = findViewById(R.id.linearBtnForget);
+        btnLoginOnClick = findViewById(R.id.btnLoginOnClick);
+        txtForgetPass = findViewById(R.id.txtForgetPass);
+        btnBackOnClickForgetPass = findViewById(R.id.btnBackOnClickForgetPass);
+        btnGetPass = findViewById(R.id.btnGetPass);
+        imgPhone = findViewById(R.id.imgPhone);
+        imgPass = findViewById(R.id.imgPass);
+        imgTop = findViewById(R.id.imgTop);
+        imgForgetPass = findViewById(R.id.imgForgetPass);
 
+        linearUp = findViewById(R.id.linearUp);
         LinearLogin.setVisibility(View.VISIBLE);
+        txtForgetPass.setVisibility(View.VISIBLE);
         LinearRegForgetPass.setVisibility(View.GONE);
+
+        SetHeightWidth();
     }
 
+
+    private void SetHeightWidth() {
+
+        int heightPixelsBtn = (int) (getResources().getDisplayMetrics().heightPixels / 13);
+        int widthPixelsBtn = (int) (getResources().getDisplayMetrics().widthPixels / 2.2);
+        int heightPixelsEdt = (int) (getResources().getDisplayMetrics().heightPixels / 13);
+        int widthPixelsEdt = (int) (getResources().getDisplayMetrics().widthPixels / 1.2) - 60;
+        int heightPixelsImgTop = (int) (getResources().getDisplayMetrics().heightPixels / 6);
+        int widthPixelsImgTop = (int) (getResources().getDisplayMetrics().widthPixels / 2);
+
+        btnLoginOnClick.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt+60, heightPixelsBtn));
+        btnBackOnClickForgetPass.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsBtn, heightPixelsBtn));
+        btnGetPass.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsBtn, heightPixelsBtn));
+        edtPhoneNumLogin.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt, heightPixelsEdt));
+        edtPassLogin.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt, heightPixelsEdt));
+        edtPhoneNumberForget.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt, heightPixelsEdt));
+
+        imgPhone.getLayoutParams().height = heightPixelsEdt;
+        imgPass.getLayoutParams().height = heightPixelsEdt;
+        imgForgetPass.getLayoutParams().height = heightPixelsEdt;
+
+        imgTop.getLayoutParams().height = heightPixelsImgTop;
+        imgTop.getLayoutParams().width = widthPixelsImgTop;
+
+
+        LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) btnLoginOnClick.getLayoutParams();
+        params.setMargins(0, 10, 0, 0);
+        btnLoginOnClick.setLayoutParams(params);
+
+        LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) linearBtnForget.getLayoutParams();
+        params2.setMargins(0, 10, 0, 0);
+        linearBtnForget.setLayoutParams(params2);
+    }
+
+
     //forget password ******************************************************************************
-    public void btnForgetPass(View view) {
+    public void txtForgetPass(View view) {
         LinearLogin.setVisibility(View.GONE);
+        txtForgetPass.setVisibility(View.INVISIBLE);
         LinearRegForgetPass.setVisibility(View.VISIBLE);
+
     }
 
     public void btnGetPass(View view) {
@@ -65,6 +125,7 @@ public class Activity_Login_PoleTech extends AppCompatActivity {
     public void btnBackOnClickForgetPass(View view) {
         edtPhoneNumberForget.setText("");
         LinearLogin.setVisibility(View.VISIBLE);
+        txtForgetPass.setVisibility(View.VISIBLE);
         LinearRegForgetPass.setVisibility(View.GONE);
     }
 

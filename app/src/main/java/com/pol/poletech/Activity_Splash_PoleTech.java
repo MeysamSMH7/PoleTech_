@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.pol.poletech.classes.checkInternet;
 
@@ -59,7 +60,13 @@ public class Activity_Splash_PoleTech extends AppCompatActivity {
 
         }, 500);
 
+
     }
+
+
+
+
+
 
     private void checkNet() {
         AlertDialog.Builder builder = new AlertDialog.Builder(Activity_Splash_PoleTech.this);
@@ -79,5 +86,8 @@ public class Activity_Splash_PoleTech extends AppCompatActivity {
             finish();
         }
 
+
+
     }
+
 }

@@ -1,9 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="@drawable/background_login"
+android:orientation="vertical"
+tools:context=".Activity_Login_PoleTech">
+
+
+<ImageView
+    android:id="@+id/imgTop"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_weight="0.2"
+    android:background="@drawable/img_rounded" />
+
+<LinearLayout
+    android:id="@+id/linearUp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Activity_Login_PoleTech"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="10dp"
+    android:layout_weight="0.7"
+    android:elevation="10dp"
+    android:background="@color/colorWhite"
     android:orientation="vertical">
 
     <!--login-->
@@ -11,48 +32,63 @@
         android:id="@+id/LinearLogin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:gravity="center"
         android:orientation="vertical"
-        android:visibility="gone">
-
-        <EditText
-            android:id="@+id/edtPhoneNumLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:inputType="phone"
-            android:text="1"
-            android:hint="@string/edtPhoneNumber" />
-
-        <EditText
-            android:id="@+id/edtPassLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="1"
-            android:hint="@string/edtPassword" />
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:weightSum="10">
+            android:orientation="horizontal">
 
-            <Button
+            <EditText
+                android:id="@+id/edtPhoneNumLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:onClick="btnForgetPass"
-                android:text="@string/btnForgetPass" />
+                android:gravity="center"
+                android:hint="@string/edtPhoneNumber"
+                android:inputType="phone" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:onClick="btnLoginOnClick"
-                android:text="@string/btnLogin" />
+            <ImageView
+                android:id="@+id/imgPhone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/img_circle" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtPassLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/edtPassword" />
+
+            <ImageView
+                android:id="@+id/imgPass"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/img_circle" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnLoginOnClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ripple_buttons"
+            android:onClick="btnLoginOnClick"
+            android:text="@string/btnLogin" />
+
 
     </LinearLayout>
 
@@ -63,38 +99,72 @@
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
-        <EditText
-            android:id="@+id/edtPhoneNumberForget"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:inputType="phone"
-            android:hint="@string/edtPhoneNumber" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/edtPhoneNumberForget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/edtPhoneNumber"
+                android:inputType="phone" />
+
+            <ImageView
+                android:id="@+id/imgForgetPass"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/img_circle" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/linearBtnForget"
             android:gravity="center"
             android:weightSum="10">
 
             <Button
+                android:id="@+id/btnBackOnClickForgetPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
+                android:background="@drawable/ripple_buttons"
                 android:onClick="btnBackOnClickForgetPass"
                 android:text="@string/btnBack" />
 
             <Button
+                android:id="@+id/btnGetPass"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
+                android:background="@drawable/ripple_buttons"
                 android:onClick="btnGetPass"
                 android:text="@string/btnGetPass" />
 
         </LinearLayout>
 
     </LinearLayout>
+
+
+</LinearLayout>
+
+<TextView
+    android:id="@+id/txtForgetPass"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.1"
+    android:onClick="txtForgetPass"
+    android:text="@string/txtForgetPass"
+    android:textColor="@color/ForgetPassColor" />
+
 
 </LinearLayout>
