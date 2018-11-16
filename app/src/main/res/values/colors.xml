@@ -48,6 +48,7 @@
         <item>@color/dot_dark_Screen3</item>
     </array>
 
+
     <array name="array_light_active">
         <item>@color/dot_light_Screen1</item>
         <item>@color/dot_light_Screen2</item>
