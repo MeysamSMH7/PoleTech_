@@ -18,11 +18,11 @@ import android.widget.TextView;
 
 public class Activity_Wellcome_PoleTech extends AppCompatActivity {
 
-    ViewPager view_pager;
-    LinearLayout dotsLayout;
-    Button btnBack, btnNext;
-    int[] layouts;
-    TextView[] dots;
+    private ViewPager view_pager;
+    private LinearLayout dotsLayout;
+    private Button btnBack, btnNext;
+    private int[] layouts;
+    private TextView[] dots;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

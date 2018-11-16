@@ -21,6 +21,7 @@
     <string name="LinkDoingJob">http://amlakeyekta.ir/pol/Req/requestTech_DoingJob.php</string>
     <string name="LinkTicket">http://amlakeyekta.ir/pol/Tech/sendticket.php</string>
     <string name="LinkSelectTicket">http://amlakeyekta.ir/pol/Tech/selectticket.php</string>
+    <string name="LinkJobsDone">http://amlakeyekta.ir/pol/Req/requestWhatIsTheJobsDone.php</string>
 
 
     <!--login Activity-->
@@ -38,14 +39,15 @@
     <!--Acc2 Activity-->
     <string name="edtFirstPriceAcc2">لطفا قیمت اولیه را به تومان وارد نمایید</string>
     <string name="edtPeriodWorkAcc2">لطفا بازه ی زمانی کار را به صورت ساعت وارد نمایید</string>
-    <string name="btnGetWorkAcc2">آره</string>
-    <string name="btnNoGetWorkAcc2">نه</string>
+    <string name="btnGetWorkAcc2">تایید قیمت</string>
+    <string name="btnNoGetWorkAcc2">رد کردن</string>
     <string name="txtNotingToShow">کاری برای تعیین قیمت وجود ندارد</string>
 
     <!--Finished Activity-->
     <string name="edtAddPrice">قیمت اضافه</string>
     <string name="edtChangePriceRes">علت تغییر قیمت</string>
     <string name="btnFinished">کار تمام است</string>
+    <string name="txtNoJob">شما کاری ندارید</string>
 
     <!--GetMoney Activity-->
     <string name="btnGetMoney">پول دریافت شد</string>
@@ -55,6 +57,7 @@
     <string name="ToastCheckNetMessage">لطفا اتصال خود به اینترنت را چک کنید</string>
 
     <!--Menu-->
+    <string name="Done">کار های تمام شده</string>
     <string name="FAQ">قوانین و مقررات</string>
     <string name="itmAboutUs">درباره ما</string>
     <string name="itmTellUs">ارسال تیکت</string>
@@ -69,4 +72,22 @@
     <string name="AnswerNotTicket">به تیکت شما پاسخ داده نشده</string>
     <string name="AnswerTicket">به تیکت شما پاسخ داده شده</string>
 
+
+    <!--Fragment main-->
+    <string name="txtOffers">کار های پیشنهاد شده به شما</string>
+    <string name="txtMore">بیشتر...</string>
+    <string name="txtYes">بله</string>
+    <string name="txtNo">خیر</string>
+    <string name="txtAcceptOne">آیا این کار را قبول میکنید؟</string>
+
+    <!--Mali-->
+    <string name="NoJobForMoney">کاری برای دریافت پول ندارید یا هنوز قیمت توسط کاربر تایید نشده است</string>
+
+    <!--JobsDone-->
+    <string name="txtNoJobs">شما کار تمام شده ای ندارید</string>
+    <string name="btnClose">بستن</string>
+
+
+
 </resources>
+

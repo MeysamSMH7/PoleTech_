@@ -22,7 +22,8 @@
         <activity android:name=".Activity_Wellcome_PoleTech" />
         <activity android:name=".Activity_Login_PoleTech" />
         <activity android:name=".Activity_Main_PoleTech" />
-        <activity android:name=".Activity_Ticket_PolTech"></activity>
+        <activity android:name=".Activity_Ticket_PolTech" />
+        <activity android:name=".Activity_JobsDone_PoleTech"></activity>
     </application>
 
 </manifest>

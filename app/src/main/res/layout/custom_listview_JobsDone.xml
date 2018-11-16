@@ -11,13 +11,6 @@
 
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="5dp"
-            android:text="@string/txtAcceptOne" />
-
-        <TextView
             android:id="@+id/txtlstSubjectsAlet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -28,37 +21,36 @@
             android:background="@drawable/txt_offermain_subject"
             android:padding="7dp" />
 
-
         <TextView
-            android:id="@+id/txtlstWorksAlert"
+            android:id="@+id/txtlstWorksAlert1"
             android:layout_width="match_parent"
+            android:layout_marginRight="7dp"
             android:layout_height="wrap_content" />
 
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/txtlstWorksAlert2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:weightSum="10">
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/txt_offermain_subject"
+            android:padding="7dp" />
 
-            <Button
-                android:id="@+id/btnlst_CancelAlert"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text="@string/txtNo" />
+        <TextView
+            android:id="@+id/txtlstWorksAlert3"
+            android:layout_width="match_parent"
+            android:layout_marginRight="7dp"
+            android:layout_height="wrap_content" />
 
-            <Button
-                android:id="@+id/btnlst_getWorkAlert"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="5"
-                android:text="@string/txtYes" />
-
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnlst_CancelAlert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btnClose" />
 
     </LinearLayout>
 

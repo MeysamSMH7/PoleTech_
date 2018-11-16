@@ -14,8 +14,8 @@ import com.pol.poletech.classes.checkInternet;
 
 public class Activity_Splash_PoleTech extends AppCompatActivity {
 
-    boolean finishSplash = false, getStatusWellCome = false;
-    checkInternet internet;
+    private      boolean finishSplash = false, getStatusWellCome = false;
+    private      checkInternet internet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

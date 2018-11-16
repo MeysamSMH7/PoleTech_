@@ -3,6 +3,11 @@
 
 
     <item
+        android:id="@+id/Done"
+        android:icon="@mipmap/ic_launcher"
+        android:title="@string/Done" />
+
+    <item
         android:id="@+id/FAQ"
         android:icon="@mipmap/ic_launcher"
         android:title="@string/FAQ" />

@@ -18,7 +18,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.pol.poletech.R;
 import com.pol.poletech.connectClasses.connect_AccOne;
 import com.pol.poletech.connectClasses.connect_Works;
@@ -29,42 +28,27 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+public class Tab_Tech_NewWorks extends Fragment {
 
-public class Tab_main_PolUser extends Fragment {
+    private AlertDialog ShowWorksAlert;
+    private ListView lstWorks;
 
-    AlertDialog ShowWorksAlert;
-    ListView lstWorks;
-    TextView txtHaveJob;
+    private ArrayAdapter adapterWorks;
+    private SharedPreferences mainShared;
+    private List<String> listWorks, listWorksAlert, listSubjects;
+    private List<Integer> listIDPost;
+    private int IDTech = 0, IDPost = 0, haveJob = 0;
+    private String Skills = "", State = "";
 
-    ArrayAdapter adapterWorks;
-    SharedPreferences mainShared;
-    List<String> listWorks, listWorksAlert;
-    List<Integer> listIDPost;
-    int IDTech = 0, IDPost = 0;
-    int haveJob = 0;
-    String Skills = "", State = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_main_layout_poltech, container, false);
-
+        View view = inflater.inflate(R.layout.fr_tech_newworks, container, false);
         mainShared = getActivity().getSharedPreferences("polTech", 0);
         haveJob = mainShared.getInt("HaveJob_Tech", 0);
 
-        lstWorks = view.findViewById(R.id.lstWorks);
-        txtHaveJob = view.findViewById(R.id.txtHaveJob);
-
-
-        if (haveJob == 0) {
-            lstWorks.setVisibility(View.VISIBLE);
-            txtHaveJob.setVisibility(View.GONE);
-            DontHaveJob();
-        } else {
-            lstWorks.setVisibility(View.GONE);
-            txtHaveJob.setVisibility(View.VISIBLE);
-            HaveJob();
-        }
-
+        lstWorks = view.findViewById(R.id.lstWorks_NewWorks);
+        DontHaveJob();
 
         return view;
     }
@@ -79,6 +63,7 @@ public class Tab_main_PolUser extends Fragment {
 
         listWorks = new ArrayList<>();
         listWorksAlert = new ArrayList<>();
+        listSubjects = new ArrayList<>();
         listIDPost = new ArrayList<>();
 
 
@@ -93,10 +78,12 @@ public class Tab_main_PolUser extends Fragment {
                 AlertDialog.Builder builder_Works = new AlertDialog.Builder(getContext());
                 LinearLayout layout_Works = (LinearLayout) getLayoutInflater().inflate(R.layout.custom_listview_worksalert, null, false);
                 TextView txtlstWorksAlert = layout_Works.findViewById(R.id.txtlstWorksAlert);
+                TextView txtlstSubjectsAlet = layout_Works.findViewById(R.id.txtlstSubjectsAlet);
                 Button btnlst_CancelAlert = layout_Works.findViewById(R.id.btnlst_CancelAlert);
                 Button btnlst_getWorkAlert = layout_Works.findViewById(R.id.btnlst_getWorkAlert);
 
                 txtlstWorksAlert.setText(listWorksAlert.get(position) + "");
+                txtlstSubjectsAlet.setText(listSubjects.get(position) + "");
 
                 btnlst_CancelAlert.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -108,10 +95,27 @@ public class Tab_main_PolUser extends Fragment {
                 btnlst_getWorkAlert.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        IDPost = listIDPost.get(position) ;
-                        new connect_AccOne(getString(R.string.LinkAcceptOne), iAcceptOne, IDTech + "", IDPost+"").execute();
-                        ShowWorksAlert.dismiss();
+                        haveJob = mainShared.getInt("HaveJob_Tech", 0);
+                        if (haveJob == 1) {
+                            Toast.makeText(getContext(), "شما نمیتونید کار جدیدی رو بگیرید", Toast.LENGTH_SHORT).show();
+                        } else {
 
+                            SharedPreferences.Editor editor = mainShared.edit();
+                            editor.putInt("HaveJob_Tech", 0);
+                            editor.putInt("reqID_Tech", 0);
+                            editor.commit();
+
+                            IDPost = listIDPost.get(position);
+                            new connect_AccOne(getString(R.string.LinkAcceptOne), iAcceptOne, IDTech + "", IDPost + "").execute();
+                            ShowWorksAlert.dismiss();
+
+                            listWorks.clear();
+                            listSubjects.clear();
+                            adapterWorks.clear();
+                            new connect_Works(getString(R.string.LinkWorks), ishowWorksRes, Skills, State).execute();
+
+
+                        }
                     }
                 });
 
@@ -137,7 +141,9 @@ public class Tab_main_PolUser extends Fragment {
                 public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                     convertView = getLayoutInflater().inflate(R.layout.custom_listview_works, parent, false);
                     TextView txtlstWorks = convertView.findViewById(R.id.txtlstWorks);
+                    TextView txtlstSubjects = convertView.findViewById(R.id.txtlstSubjects);
                     txtlstWorks.setText(listWorks.get(position));
+                    txtlstSubjects.setText(listSubjects.get(position));
                     return convertView;
                 }
             };
@@ -155,10 +161,7 @@ public class Tab_main_PolUser extends Fragment {
             editor.putInt("HaveJob_Tech", 1);
             editor.putInt("reqID_Tech", IDPost);
             editor.commit();
-            haveJob = 1;
-            lstWorks.setVisibility(View.GONE);
-            txtHaveJob.setVisibility(View.VISIBLE);
-            HaveJob();
+
         }
     };
 
@@ -182,87 +185,20 @@ public class Tab_main_PolUser extends Fragment {
                 String LastName = object.getString("LastName");
                 int PhoneNum = object.getInt("PhoneNum");
 
+                listSubjects.add(Subject);
+                listIDPost.add(IDPost);
+
                 listWorks.add("" +
-                        "موضوع: " + Subject + "\n" +
-                        "تاریخ: " + DateDay + "/" + DateMonth + "/" + DateYear + "\t" + NameWeek + "\n" +
+                        "تاریخ: " + NameWeek + "\t" + DateDay + "/" + DateMonth + "/" + DateYear + "\n" +
                         "بازه زمانی: " + PeriodTime + "\n");
 
                 listWorksAlert.add("" +
-                        "موضوع: " + Subject + "\n" +
-                        "تاریخ: " + DateDay + "/" + DateMonth + "/" + DateYear + "\t" + NameWeek + "\n" +
+                        "تاریخ: " + NameWeek + "\t" + DateDay + "/" + DateMonth + "/" + DateYear + "\n" +
                         "بازه زمانی: " + PeriodTime + "\n" +
+                        "نام درخواست دهنده: " + FirstName + " " + LastName + "\n" +
                         "آدرس: " + Address + "\n" +
-                        "متن درخواست: " + txt + "\n" +
-                        "نام و نام خانوادگی درخواست دهنده: " + FirstName + " " + LastName + "\n" +
-                        "شماره تلفن: " + PhoneNum + "\n");
-                listIDPost.add(IDPost);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    // HAVE JOB *********************************************************
-    private void HaveJob() {
-        IDPost = mainShared.getInt("reqID_Tech", 0);
-        new connect_AccOne(getString(R.string.LinkDoingJob), ishowAccOneRes, "", IDPost + "").execute();
-
-    }
-
-    // show Job *********************************************************
-    connect_AccOne.IshowAccOneRes ishowAccOneRes = new connect_AccOne.IshowAccOneRes() {
-        @Override
-        public void AccOneTechResult(String res) {
-            GetWorkDOING(res);
-        }
-    };
-
-    //GetJson *****************************************************************************
-    private void GetWorkDOING(String res) {
-        try {
-            JSONArray jsonArray = new JSONArray(res);
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject object = jsonArray.getJSONObject(i);
-
-                int IDPost = object.getInt("ID");
-                String Subject = object.getString("Subject");
-                int DateDay = object.getInt("DateDay");
-                String DateMonth = object.getString("DateMonth");
-                int DateYear = object.getInt("DateYear");
-                String NameWeek = object.getString("NameWeek");
-                String PeriodTime = object.getString("PeriodTime");
-                String Address = object.getString("Address");
-                String txt = object.getString("txt");
-                String FirstName = object.getString("FirstName");
-                String LastName = object.getString("LastName");
-                String PhoneNum = object.getString("PhoneNum")+"";
-                int PeriodWork = object.getInt("PeriodWork");
-                int Price = object.getInt("Price");
-                String PriceST = "", PeriodWorkST = "";
-
-                if (Price == 0) {
-                    PriceST = "تعیین نشده";
-                } else {
-                    PriceST = Price + "";
-                }
-                if (PeriodWork == 0) {
-                    PeriodWorkST = "تعیین نشده";
-                } else {
-                    PeriodWorkST = PeriodWork + "";
-                }
-
-
-                txtHaveJob.setText("" +
-                        "موضوع: " + Subject + "\n" +
-                        "تاریخ: " + DateDay + "/" + DateMonth + "/" + DateYear + "\t" + NameWeek + "\n" +
-                        "بازه زمانی: " + PeriodTime + "\n" +
-                        "آدرس: " + Address + "\n" +
-                        "متن درخواست: " + txt + "\n" +
-                        "قیمت: " + PriceST + "\n" +
-                        "بازه زمانی: " + PeriodWorkST + "\n" +
-                        "نام و نام خانوادگی درخواست دهنده: " + FirstName + " " + LastName + "\n" +
-                        "شماره تلفن: " + PhoneNum + "\n");
+                        "شماره تلفن: " + PhoneNum + "\n" +
+                        "متن درخواست: " + txt + "\n");
 
             }
         } catch (Exception e) {

@@ -4,24 +4,25 @@
     <item
         android:id="@+id/MainPageFrame"
         android:icon="@mipmap/ic_launcher"
-        android:title="صفحه اصلی"
+        android:title="درخواست جدید"
         />
 
     <item
         android:id="@+id/Tab_WaitForAcc2_PolTech"
         android:icon="@mipmap/ic_launcher"
-        android:title="در انتظار تایید"
+        android:title="کار فعلی"
         />
 
     <item
         android:id="@+id/Tab_FinishWork_PolTech"
         android:icon="@mipmap/ic_launcher"
-        android:title="اتمام کار ؟"
+        android:title="اتمام"
         />
 
     <item
-        android:id="@+id/Tab_WaitForMoney_PolTech"
+        android:id="@+id/Tab_Mali_PolTech"
         android:icon="@mipmap/ic_launcher"
-        android:title="پول گرفتی؟"
+        android:title="مالی"
         />
+
 </menu>

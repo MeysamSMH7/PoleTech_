@@ -1,5 +1,6 @@
 package com.pol.poletech;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,29 +20,28 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.pol.poletech.Fragments.Tab_FinishWork_PolTech;
-import com.pol.poletech.Fragments.Tab_WaitForAcc2_PolTech;
-import com.pol.poletech.Fragments.Tab_WaitForMoney_PolTech;
-import com.pol.poletech.Fragments.Tab_main_PolUser;
+import com.pol.poletech.Fragments.Tab_Tech_Finish;
+import com.pol.poletech.Fragments.Tab_Tech_Mali;
+import com.pol.poletech.Fragments.Tab_Tech_NewWorks;
+import com.pol.poletech.Fragments.Tab_Tech_ThisWork;
 import com.pol.poletech.classes.checkInternet;
 
 
 public class Activity_Main_PoleTech extends AppCompatActivity {
-    Tab_main_PolUser fragment1;
-    Tab_WaitForAcc2_PolTech fragment2;
-    Tab_FinishWork_PolTech fragment3;
-    Tab_WaitForMoney_PolTech fragment4;
-    ViewGroup frameLayout;
-    BottomNavigationView navMainPolUser;
 
-    DrawerLayout drawerLayout;
-    NavigationView navigationview;
-    SharedPreferences sharedPreferences;
+    private Tab_Tech_NewWorks fragment1;
+    private Tab_Tech_ThisWork fragment2;
+    private Tab_Tech_Finish fragment3;
+    private Tab_Tech_Mali fragment4;
+    private ViewGroup frameLayout;
+    private BottomNavigationView navMainPolUser;
 
-    checkInternet internet;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationview;
+    private SharedPreferences sharedPreferences;
+
+    private checkInternet internet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +52,13 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("polTech", 0);
 
-        frameLayout = (ViewGroup) findViewById(R.id.frameMainPolUser);
-        fragment1 = new Tab_main_PolUser();
-        fragment2 = new Tab_WaitForAcc2_PolTech();
-        fragment3 = new Tab_FinishWork_PolTech();
-        fragment4 = new Tab_WaitForMoney_PolTech();
+        frameLayout = findViewById(R.id.frameMainPolUser);
+        fragment1 = new Tab_Tech_NewWorks();
+        fragment2 = new Tab_Tech_ThisWork();
+        fragment3 = new Tab_Tech_Finish();
+        fragment4 = new Tab_Tech_Mali();
 
-          navMainPolUser = findViewById(R.id.navMainPolUser);
+        navMainPolUser = findViewById(R.id.navMainPolUser);
 
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -87,8 +87,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
                         transaction.replace(R.id.frameMainPolUser, fragment3);
                         transaction.commit();
                         break;
-
-                    case R.id.Tab_WaitForMoney_PolTech:
+                    case R.id.Tab_Mali_PolTech:
                         transaction.replace(R.id.frameMainPolUser, fragment4);
                         transaction.commit();
                         break;
@@ -98,11 +97,11 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
         });
 
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        navigationview = (NavigationView) findViewById(R.id.navigationview);
+        drawerLayout = findViewById(R.id.drawerLayout);
+        navigationview = findViewById(R.id.navigationview);
         navigationview.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -115,8 +114,8 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
             }
         });
 
-    }
 
+    }
 
 
     private void AlertDialogLogout() {
@@ -140,7 +139,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
                 editor.putString("Password_User", null);
                 editor.putBoolean("statusLogin?", false);
                 editor.apply();
-
+                finish();
             }
         });
 
@@ -207,6 +206,17 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
     private void switchNavigationView(int ID) {
 
         switch (ID) {
+            case R.id.Done:
+
+                if (!internet.CheckNetworkConnection()) {
+                    checkNet();
+                } else {
+                    Intent intent2 = new Intent(Activity_Main_PoleTech.this, Activity_JobsDone_PoleTech.class);
+                    startActivity(intent2);
+                }
+
+                break;
+
             case R.id.itmAboutUs:
 
                 AlertDialogDraweLayout("درباره ما", "متن درباره ما");
@@ -216,7 +226,6 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
 
                 AlertDialogDraweLayout("قوانین", "متن قوانین");
                 break;
-
 
             case R.id.itmTellUs:
 

@@ -19,25 +19,24 @@ import com.pol.poletech.connectClasses.connect_Finished;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
+public class Tab_Tech_Finish extends Fragment {
 
-public class Tab_FinishWork_PolTech extends Fragment {
 
     //var Views ************************************************
-    TextView txtShowWorkFinished, txtJobNotDone;
-    EditText edtAddPriceFinished, edtChangePriceResFinished;
-    Button btnFinished;
-    LinearLayout linearJobDone;
+    private TextView txtShowWorkFinished, txtJobNotDone;
+    private EditText edtAddPriceFinished, edtChangePriceResFinished;
+    private Button btnFinished;
+    private LinearLayout linearJobDone;
 
     //public var **********************************************
-    SharedPreferences preferencesFinishedTech;
-    int IDPost = 0, AccpectPriceUser = 0, FinalStatus = 0;
+    private SharedPreferences preferencesFinishedTech;
+    private int IDPost = 0, AccpectPriceUser = 0, FinalStatus = 0;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_finishwork_poltech, container, false);
+        View view = inflater.inflate(R.layout.fr_tech_finish, container, false);
 
         //open shared ******************************************************************
         preferencesFinishedTech = getActivity().getSharedPreferences("polTech", 0);
@@ -45,12 +44,12 @@ public class Tab_FinishWork_PolTech extends Fragment {
 
 
         //create objects of view *************************************************************************************
-        txtShowWorkFinished = view.findViewById(R.id.txtShowWorkFinished);
-        edtAddPriceFinished = view.findViewById(R.id.edtAddPriceFinished);
-        edtChangePriceResFinished = view.findViewById(R.id.edtChangePriceResFinished);
-        txtJobNotDone = view.findViewById(R.id.txtJobNotDone);
-        linearJobDone = view.findViewById(R.id.linearJobDone);
-        btnFinished = view.findViewById(R.id.btnFinished);
+        txtShowWorkFinished = view.findViewById(R.id.txtShowWorkFinished_FinishChange);
+        edtAddPriceFinished = view.findViewById(R.id.edtAddPriceFinished_FinishChange);
+        edtChangePriceResFinished = view.findViewById(R.id.edtChangePriceResFinished_FinishChange);
+        txtJobNotDone = view.findViewById(R.id.txtJobNotDone_FinishChange);
+        linearJobDone = view.findViewById(R.id.linearJobDone_FinishChange);
+        btnFinished = view.findViewById(R.id.btnFinished_FinishChange);
 
         new connect_AccOne(getString(R.string.LinkWhatIsTheJobFinished), ishowAccOneRes, "", IDPost + "").execute();
 
@@ -65,14 +64,25 @@ public class Tab_FinishWork_PolTech extends Fragment {
             }
         });
 
-        Toast.makeText(getContext(), "1111", Toast.LENGTH_SHORT).show();
         return view;
+
     }
+
 
     connect_AccOne.IshowAccOneRes ishowAccOneRes = new connect_AccOne.IshowAccOneRes() {
         @Override
         public void AccOneTechResult(String res) {
-            GetJsonWhatsJobFinished(res);
+
+            if (res.contains("[]")) {
+                txtJobNotDone.setVisibility(View.VISIBLE);
+                linearJobDone.setVisibility(View.GONE);
+            } else {
+                txtJobNotDone.setVisibility(View.GONE);
+                linearJobDone.setVisibility(View.VISIBLE);
+                GetJsonWhatsJobFinished(res);
+            }
+
+
         }
     };
 
@@ -135,7 +145,7 @@ public class Tab_FinishWork_PolTech extends Fragment {
                 if (AccpectPriceUser == 0) {
                     txtJobNotDone.setVisibility(View.VISIBLE);
                     linearJobDone.setVisibility(View.GONE);
-                 } else {
+                } else {
                     txtJobNotDone.setVisibility(View.GONE);
                     linearJobDone.setVisibility(View.VISIBLE);
 
@@ -151,3 +161,4 @@ public class Tab_FinishWork_PolTech extends Fragment {
         }
     }
 }
+

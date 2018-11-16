@@ -2,7 +2,6 @@ package com.pol.poletech.Fragments;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.pol.poletech.R;
 import com.pol.poletech.connectClasses.connect_AccOne;
@@ -19,31 +17,31 @@ import com.pol.poletech.connectClasses.connect_AccOne;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Tab_WaitForMoney_PolTech extends Fragment {
+public class Tab_Tech_Mali extends Fragment {
 
-    Button btnGetMoney;
-    LinearLayout linearGetMoney;
-    TextView txtShowWorkGetMoney, txtGetMoney;
+    private Button btnGetMoney;
+    private LinearLayout linearGetMoney;
+    private TextView txtShowWorkGetMoney, txtGetMoney;
 
-    SharedPreferences preferencesGetMoneyTech;
-    int IDPost = 0;
-    int IDTech = 0;
+    private SharedPreferences preferencesGetMoneyTech;
+    private int IDPost = 0;
+    private int IDTech = 0;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.ft_waitmoney_poltech, container, false);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fr_tech_mali, container, false);
 
         //open shared ******************************************************************
         preferencesGetMoneyTech = getActivity().getSharedPreferences("polTech", 0);
         IDPost = preferencesGetMoneyTech.getInt("reqID_Tech", 0);
 
         //create objects of view *************************************************************************************
-        linearGetMoney = view.findViewById(R.id.linearGetMoney);
-        txtGetMoney = view.findViewById(R.id.txtGetMoney);
-        btnGetMoney = view.findViewById(R.id.btnGetMoney);
+        linearGetMoney = view.findViewById(R.id.linearGetMoney_Mali);
+        txtGetMoney = view.findViewById(R.id.txtGetMoney_Mali);
+        btnGetMoney = view.findViewById(R.id.btnGetMoney_Mali);
 
 
-        txtShowWorkGetMoney = view.findViewById(R.id.txtShowWorkGetMoney);
+        txtShowWorkGetMoney = view.findViewById(R.id.txtShowWorkGetMoney_Mali);
         new connect_AccOne(getString(R.string.LinkWhatIsTheJobGetMoney), ishowAccOneRes, "", IDPost + "").execute();
 
         btnGetMoney.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +68,7 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
                 if (res.contains("[]")) {
                     txtGetMoney.setVisibility(View.VISIBLE);
                     linearGetMoney.setVisibility(View.GONE);
-                    txtGetMoney.setText("کاری برای دریافت پول ندارید");
+                    txtGetMoney.setText(getString(R.string.NoJobForMoney));
                 } else {
                     GetJsonWhatsJobGetMoney(res);
                     txtGetMoney.setVisibility(View.GONE);
@@ -108,7 +106,7 @@ public class Tab_WaitForMoney_PolTech extends Fragment {
 
                 txtShowWorkGetMoney.setText("" +
                         "موضوع: " + Subject + "\n" +
-                        "تاریخ: " + DateDay + "/" + DateMonth + "/" + DateYear + "\t" + NameWeek + "\n" +
+                        "تاریخ: " + NameWeek + "\t" + DateDay + "/" + DateMonth + "/" + DateYear + "\n" +
                         "بازه زمانی: " + PeriodTime + "\n" +
                         "آدرس: " + Address + "\n" +
                         "متن درخواست: " + txt + "\n" +

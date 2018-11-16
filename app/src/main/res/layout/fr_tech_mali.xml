@@ -5,14 +5,14 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/linearGetMoney"
+        android:id="@+id/linearGetMoney_Mali"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:visibility="gone">
 
         <TextView
-            android:id="@+id/txtShowWorkGetMoney"
+            android:id="@+id/txtShowWorkGetMoney_Mali"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -20,12 +20,12 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnGetMoney"
+            android:id="@+id/btnGetMoney_Mali"
             android:text="@string/btnGetMoney" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtGetMoney"
+        android:id="@+id/txtGetMoney_Mali"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone" />

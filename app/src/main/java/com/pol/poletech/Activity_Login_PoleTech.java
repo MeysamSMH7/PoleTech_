@@ -1,14 +1,10 @@
 package com.pol.poletech;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.icu.text.UnicodeSetSpanner;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -25,11 +21,11 @@ import org.json.JSONObject;
 public class Activity_Login_PoleTech extends AppCompatActivity {
 
     //var of elements
-    EditText edtPhoneNumLogin, edtPassLogin, edtPhoneNumberForget;
-    LinearLayout LinearLogin, LinearRegForgetPass, linearUp,linearBtnForget;
-    Button btnLoginOnClick, btnBackOnClickForgetPass, btnGetPass;
-    TextView txtForgetPass;
-    ImageView imgPhone, imgPass, imgTop,imgForgetPass;
+    private EditText edtPhoneNumLogin, edtPassLogin, edtPhoneNumberForget;
+    private LinearLayout LinearLogin, LinearRegForgetPass, linearUp, linearBtnForget;
+    private Button btnLoginOnClick, btnBackOnClickForgetPass, btnGetPass;
+    private TextView txtForgetPass;
+    private ImageView imgPhone, imgPass, imgTop, imgForgetPass;
 
     //public var
     SharedPreferences preferencesLoginTech;
@@ -76,7 +72,7 @@ public class Activity_Login_PoleTech extends AppCompatActivity {
         int heightPixelsImgTop = (int) (getResources().getDisplayMetrics().heightPixels / 6);
         int widthPixelsImgTop = (int) (getResources().getDisplayMetrics().widthPixels / 2);
 
-        btnLoginOnClick.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt+60, heightPixelsBtn));
+        btnLoginOnClick.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt + 60, heightPixelsBtn));
         btnBackOnClickForgetPass.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsBtn, heightPixelsBtn));
         btnGetPass.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsBtn, heightPixelsBtn));
         edtPhoneNumLogin.setLayoutParams(new LinearLayout.LayoutParams(widthPixelsEdt, heightPixelsEdt));
