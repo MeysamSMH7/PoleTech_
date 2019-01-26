@@ -5,92 +5,231 @@
     android:orientation="vertical">
 
 
+
+    <!-- Dont Have Price AND PeriodWork (TEXTVIEW)-->
     <TextView
-        android:id="@+id/txtNoJob_thisWork"
+        android:id="@+id/txtDontHavePrice"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginRight="7dp"
-        android:text="@string/txtNoJob"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:padding="10dp"
+        android:text="@string/headerThisWork_NoPriceTime"
         android:visibility="gone" />
 
+
+    <!-- Layout Details -->
     <LinearLayout
-        android:id="@+id/linearFragment_thisWork"
+        android:id="@+id/linearDetails"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
-        <TextView
-            android:id="@+id/txtSubjectsDoing_thisWork"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="7dp"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/txt_offermain_subject"
-            android:padding="7dp" />
+        <include layout="@layout/thiswork_details" />
 
-        <TextView
-            android:id="@+id/txtHaveJob_thisWork"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="7dp"
-            android:layout_marginBottom="7dp"
-            android:text="کار شما!"
-            android:visibility="visible" />
 
+    </LinearLayout>
+
+
+    <!-- Have Price AND PeriodWork (LAYOUT) -->
+    <LinearLayout
+        android:id="@+id/linearHavePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="7dp"
+        android:visibility="gone">
 
         <LinearLayout
-            android:id="@+id/linearacc2_thisWork"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone">
-
-
-            <EditText
-                android:id="@+id/edtFirstPriceAcc2_thisWork"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/edtFirstPriceAcc2" />
-
-
-            <EditText
-                android:id="@+id/edtPeriodWorkAcc2_thisWork"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/edtPeriodWorkAcc2" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="10">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/btnNoGetWorkAcc2_thisWork"
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="@string/btnNoGetWorkAcc2" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:gravity="left"
+                    android:text="@string/Toman" />
 
-                <Button
-                    android:id="@+id/btnGetWorkAcc2_thisWork"
+                <TextView
+                    android:id="@+id/txtHour"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:text="@string/btnGetWorkAcc2" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:gravity="right"
+                    android:text="@string/txtPrice" />
 
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:gravity="left"
+                    android:text="@string/Hour" />
+
+                <TextView
+                    android:id="@+id/txtPeriodWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.33"
+                    android:gravity="right"
+                    android:text="@string/txtPeriodWork" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <!-- Dont Have Price AND PeriodWork (LAYOUT) -->
+    <LinearLayout
+        android:id="@+id/linearDontHavePrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.43"
+                    android:gravity="left|center"
+                    android:text="@string/Toman" />
+
+                <EditText
+                    android:id="@+id/edtFirstPriceAcc2_thisWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.26"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.43"
+                    android:gravity="center|right"
+                    android:text="@string/txtPrice" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.43"
+                    android:gravity="left|center"
+                    android:text="@string/Hour" />
+
+                <EditText
+                    android:id="@+id/edtPeriodWorkAcc2_thisWork"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.26"
+                    android:gravity="center" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.43"
+                    android:gravity="center|right"
+                    android:text="@string/txtPeriodWork" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <Button
+                android:id="@+id/btnNoGetWorkAcc2_thisWork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/btnNoGetWorkAcc2" />
+
+            <Button
+                android:id="@+id/btnGetWorkAcc2_thisWork"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="@string/btnGetWorkAcc2" />
 
         </LinearLayout>
 
 
     </LinearLayout>
 
+
+    <!-- No Job -->
+    <TextView
+        android:id="@+id/txtNoJob_thisWork"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/txtNoJob"
+        android:visibility="gone" />
 
 </LinearLayout>

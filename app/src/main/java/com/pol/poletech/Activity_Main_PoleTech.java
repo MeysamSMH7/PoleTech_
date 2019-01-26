@@ -1,11 +1,12 @@
 package com.pol.poletech;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
@@ -20,13 +21,14 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.pol.poletech.Fragments.Tab_Tech_Finish;
 import com.pol.poletech.Fragments.Tab_Tech_Mali;
 import com.pol.poletech.Fragments.Tab_Tech_NewWorks;
 import com.pol.poletech.Fragments.Tab_Tech_ThisWork;
 import com.pol.poletech.classes.checkInternet;
-
 
 public class Activity_Main_PoleTech extends AppCompatActivity {
 
@@ -36,17 +38,19 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
     private Tab_Tech_Mali fragment4;
     private ViewGroup frameLayout;
     private BottomNavigationView navMainPolUser;
-
     private DrawerLayout drawerLayout;
     private NavigationView navigationview;
     private SharedPreferences sharedPreferences;
-
     private checkInternet internet;
+    private TextView txtToolbar;
+AlertDialog alertNewWorkAcc1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_toolbar_nv);
+
+        txtToolbar = findViewById(R.id.txtToolbar);
 
         internet = new checkInternet(this);
 
@@ -76,20 +80,24 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
                     case R.id.MainPageFrame:
                         transaction.replace(R.id.frameMainPolUser, fragment1);
                         transaction.commit();
+                        txtToolbar.setText("کار های پیشنهاد شده به شما");
                         break;
 
                     case R.id.Tab_WaitForAcc2_PolTech:
                         transaction.replace(R.id.frameMainPolUser, fragment2);
                         transaction.commit();
+                        txtToolbar.setText("کار های من");
                         break;
 
                     case R.id.Tab_FinishWork_PolTech:
                         transaction.replace(R.id.frameMainPolUser, fragment3);
                         transaction.commit();
+                        txtToolbar.setText("اتمام کار");
                         break;
                     case R.id.Tab_Mali_PolTech:
                         transaction.replace(R.id.frameMainPolUser, fragment4);
                         transaction.commit();
+                        txtToolbar.setText("مالی");
                         break;
                 }
                 return true;
@@ -113,6 +121,7 @@ public class Activity_Main_PoleTech extends AppCompatActivity {
                 return true;
             }
         });
+
 
 
     }

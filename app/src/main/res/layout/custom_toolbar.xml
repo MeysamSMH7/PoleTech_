@@ -15,21 +15,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageView
-                android:id="@+id/ImGviewTollbar"
-                android:layout_width="?attr/actionBarSize"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_margin="6dp"
-                android:src="@mipmap/ic_launcher"
-                android:visibility="gone"/>
-
             <TextView
+                android:id="@+id/txtToolbar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/ImGviewTollbar"
-                android:text="اپلیکیشن خدماتی پــل"
+                android:text="کار های پیشنهاد شده به شما"
                 android:textColor="#000"
                 android:textSize="23dp" />
         </RelativeLayout>

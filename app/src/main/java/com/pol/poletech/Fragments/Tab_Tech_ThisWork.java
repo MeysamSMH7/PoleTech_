@@ -23,8 +23,8 @@ import org.json.JSONObject;
 public class Tab_Tech_ThisWork extends Fragment {
 
     // this work (Doing)
-    private TextView txtSubjectsDoing, txtHaveJob, txtNoJob_thisWork;
-    private LinearLayout linearFragment_thisWork;
+    private TextView txtSubjectsDoing, txtNoJob_thisWork, txtDate_FrThisWork, txtTime_FrThisWork, txtFnameLname_FrThisWork, txtPhone_FrThisWork, txtAddress_FrThisWork, txtTXT_FrThisWork, txtHour, txtPeriodWork, txtDontHavePrice;
+    private LinearLayout linearDontHavePrice, linearHavePrice, linearDetails;
 
     private SharedPreferences mainShared;
     private int IDPost = 0, haveJob = 0, IDTech = 0;
@@ -32,7 +32,6 @@ public class Tab_Tech_ThisWork extends Fragment {
     // Acc2
     private EditText edtFirstPriceAcc2, edtPeriodWorkAcc2;
     private Button btnNoGetWorkAcc2, btnGetWorkAcc2;
-    private LinearLayout linearacc2_thisWork;
 
 
     @Override
@@ -40,21 +39,38 @@ public class Tab_Tech_ThisWork extends Fragment {
         View view = inflater.inflate(R.layout.fr_tech_thiswork, container, false);
         mainShared = getActivity().getSharedPreferences("polTech", 0);
         haveJob = mainShared.getInt("HaveJob_Tech", 0);
+        IDPost = mainShared.getInt("reqID_Tech", 0);
         IDTech = mainShared.getInt("ID_Tech", 0);
 
         // this work (Doing)
         txtSubjectsDoing = view.findViewById(R.id.txtSubjectsDoing_thisWork);
-        txtHaveJob = view.findViewById(R.id.txtHaveJob_thisWork);
         txtNoJob_thisWork = view.findViewById(R.id.txtNoJob_thisWork);
-        linearFragment_thisWork = view.findViewById(R.id.linearFragment_thisWork);
+        txtDontHavePrice = view.findViewById(R.id.txtDontHavePrice);
+        txtDate_FrThisWork = view.findViewById(R.id.txtDate_FrThisWork);
+        txtTime_FrThisWork = view.findViewById(R.id.txtTime_FrThisWork);
+        txtFnameLname_FrThisWork = view.findViewById(R.id.txtFnameLname_FrThisWork);
+        txtPhone_FrThisWork = view.findViewById(R.id.txtPhone_FrThisWork);
+        txtAddress_FrThisWork = view.findViewById(R.id.txtAddress_FrThisWork);
+        txtTXT_FrThisWork = view.findViewById(R.id.txtTXT_FrThisWork);
+        txtHour = view.findViewById(R.id.txtHour);
+        txtPeriodWork = view.findViewById(R.id.txtPeriodWork);
 
-        if (haveJob == 0) {
-            linearFragment_thisWork.setVisibility(View.GONE);
+        linearDontHavePrice = view.findViewById(R.id.linearDontHavePrice);
+        linearHavePrice = view.findViewById(R.id.linearHavePrice);
+        linearDetails = view.findViewById(R.id.linearDetails);
+
+        if (haveJob == 0 || IDPost == 0) {
+            linearHavePrice.setVisibility(View.GONE);
+            txtDontHavePrice.setVisibility(View.GONE);
+            linearDontHavePrice.setVisibility(View.GONE);
+            linearDetails.setVisibility(View.GONE);
+
             txtNoJob_thisWork.setVisibility(View.VISIBLE);
 
         } else {
-            linearFragment_thisWork.setVisibility(View.VISIBLE);
+
             txtNoJob_thisWork.setVisibility(View.GONE);
+            linearDetails.setVisibility(View.VISIBLE);
             HaveJob();
         }
 
@@ -65,7 +81,6 @@ public class Tab_Tech_ThisWork extends Fragment {
         edtPeriodWorkAcc2 = view.findViewById(R.id.edtPeriodWorkAcc2_thisWork);
         btnNoGetWorkAcc2 = view.findViewById(R.id.btnNoGetWorkAcc2_thisWork);
         btnGetWorkAcc2 = view.findViewById(R.id.btnGetWorkAcc2_thisWork);
-        linearacc2_thisWork = view.findViewById(R.id.linearacc2_thisWork);
 
         btnNoGetWorkAcc2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,9 +90,13 @@ public class Tab_Tech_ThisWork extends Fragment {
                 SharedPreferences.Editor editor = mainShared.edit();
                 editor.putInt("HaveJob_Tech", 0);
                 editor.putInt("reqID_Tech", 0);
-                editor.commit();
+                editor.apply();
 
-                linearFragment_thisWork.setVisibility(View.GONE);
+                linearHavePrice.setVisibility(View.GONE);
+                txtDontHavePrice.setVisibility(View.GONE);
+                linearDontHavePrice.setVisibility(View.GONE);
+                linearDetails.setVisibility(View.GONE);
+
                 txtNoJob_thisWork.setVisibility(View.VISIBLE);
 
             }
@@ -142,37 +161,37 @@ public class Tab_Tech_ThisWork extends Fragment {
                 String PhoneNum = object.getString("PhoneNum") + "";
                 int PeriodWork = object.getInt("PeriodWork");
                 int Price = object.getInt("Price");
-                String PriceST = "", PeriodWorkST = "";
 
-                if (Price == 0) {
-                    PriceST = "تعیین نشده";
-                } else {
-                    PriceST = Price + " ساعت";
-                }
-                if (PeriodWork == 0) {
-                    PeriodWorkST = "تعیین نشده";
-                } else {
-                    PeriodWorkST = PeriodWork + " تومان";
-                }
 
                 if (Price == 0 && PeriodWork == 0) {
-                    linearacc2_thisWork.setVisibility(View.VISIBLE);
+
+                    txtDontHavePrice.setVisibility(View.VISIBLE);
+                    linearDontHavePrice.setVisibility(View.VISIBLE);
+                    linearHavePrice.setVisibility(View.GONE);
+                    linearDetails.setVisibility(View.VISIBLE);
+                    txtNoJob_thisWork.setVisibility(View.GONE);
+
                 } else {
-                    linearacc2_thisWork.setVisibility(View.GONE);
+
+                    txtDontHavePrice.setVisibility(View.GONE);
+                    linearDontHavePrice.setVisibility(View.GONE);
+                    linearHavePrice.setVisibility(View.VISIBLE);
+                    linearDetails.setVisibility(View.VISIBLE);
+                    txtNoJob_thisWork.setVisibility(View.GONE);
+
                 }
 
 
                 txtSubjectsDoing.setText(Subject + "");
-                txtHaveJob.setText("" +
-                        "تاریخ: " + NameWeek + "\t" + DateDay + "/" + DateMonth + "/" + DateYear + "\n" +
-                        "بازه زمانی: " + PeriodTime + "\n" +
-                        "نام درخواست دهنده: " + FirstName + " " + LastName + "\n" +
-                        "آدرس: " + Address + "\n" +
-                        "شماره تلفن: " + PhoneNum + "\n" +
-                        "متن درخواست: " + txt + "\n" +
-                        "قیمت: " + PriceST + "\n" +
-                        "بازه زمانی: " + PeriodWorkST + "\n"
-                );
+
+                txtDate_FrThisWork.setText(DateYear + "/" + DateMonth + "/" + DateDay + "\t" + NameWeek);
+                txtTime_FrThisWork.setText(PeriodTime + "");
+                txtFnameLname_FrThisWork.setText(FirstName + " " + LastName + "");
+                txtPhone_FrThisWork.setText(PhoneNum + "");
+                txtAddress_FrThisWork.setText(Address + "");
+                txtTXT_FrThisWork.setText(txt + "");
+                txtHour.setText(Price + "");
+                txtPeriodWork.setText(PeriodWork + "");
 
             }
         } catch (Exception e) {
@@ -182,7 +201,6 @@ public class Tab_Tech_ThisWork extends Fragment {
 
 
     // Acc2
-
     connect_Acc2.IshowAcc2Res ishowAcc2Res = new connect_Acc2.IshowAcc2Res() {
         @Override
         public void Acc2TechResult(String res) {

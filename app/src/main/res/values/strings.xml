@@ -86,8 +86,19 @@
     <!--JobsDone-->
     <string name="txtNoJobs">شما کار تمام شده ای ندارید</string>
     <string name="btnClose">بستن</string>
-
-
+    <string name="txtDate">تاریخ:</string>
+    <string name="txtTime">ساعت مراجعه:</string>
+    <string name="txtUser">نام کارفرما:</string>
+    <string name="txtPhone">شماره تماس:</string>
+    <string name="txtAddress">آدرس:</string>
+    <string name="txtTXT">توضیحات:</string>
+    <string name="Toman">تومان</string>
+    <string name="txtPrice">قیمت اولیه:</string>
+    <string name="txtPeriodWork">مدت انجام کار:</string>
+    <string name="Hour">ساعت</string>
+    <string name="headerThisWork_DOING">کار فعلی من</string>
+    <string name="headerThisWork_NoPriceTime">شما این سفارش را قبول کرده اید.\n لطفا قیمت و بازه انجام کار را پر کنید</string>
+    <string name="HeaderNewWork_2">آیا این کار را قبول می کنید؟</string>
 
 
 </resources>

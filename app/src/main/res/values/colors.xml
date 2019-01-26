@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimary">#1F88A7</color>
     <color name="colorPrimaryDark">#1976D2</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorWhite">#ffffff</color>
+    <color name="colorWhite">#fff</color>
     <color name="colorBlack">#000000</color>
-    <color name="colorBlue">#2196F3</color>
+    <color name="colorBlue">#1F88A7</color>
+    <color name="colorLine">#62D0FF</color>
 
     <!--Answer Ticket-->
     <color name="colorNotAnswer">#ff0000</color>

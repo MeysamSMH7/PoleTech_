@@ -86,8 +86,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:background="@drawable/round"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/ripple_buttons"
                 android:onClick="btnLoginOnClick"
                 android:text="@string/btnLogin" />
 
@@ -139,7 +139,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@drawable/ripple_buttons"
                     android:onClick="btnBackOnClickForgetPass"
                     android:text="@string/btnBack" />
 
@@ -148,7 +147,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="4"
-                    android:background="@drawable/ripple_buttons"
                     android:onClick="btnGetPass"
                     android:text="@string/btnGetPass" />
 

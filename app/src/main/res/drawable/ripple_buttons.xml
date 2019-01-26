@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:color="@color/btnRippleLogin"
     tools:ignore="NewApi">
@@ -8,29 +7,47 @@
 
     <item>
         <shape>
-            <gradient android:startColor="@color/btnStartColorLogin" android:endColor="@color/btnEndColorLogin" android:angle="270" />
-            <stroke   android:width="1px"          android:color="@color/colorWhite" />
-            <corners android:bottomLeftRadius="8dp"
+            <gradient
+                android:angle="270"
+                android:endColor="@color/btnEndColorLogin"
+                android:startColor="@color/btnStartColorLogin" />
+            <stroke
+                android:width="1px"
+                android:color="@color/colorWhite" />
+            <corners
+                android:bottomLeftRadius="8dp"
                 android:bottomRightRadius="8dp"
                 android:topLeftRadius="8dp"
-                android:topRightRadius="8dp"/>
-            <padding  android:left="10dp"  android:top="10dp" android:right="10dp" android:bottom="10dp" />
+                android:topRightRadius="8dp" />
+            <padding
+                android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="10dp" />
         </shape>
     </item>
+
+    <inset xmlns:android="http://schemas.android.com/apk/res/android">
+        <shape android:shape="rectangle">
+            <corners
+                android:bottomLeftRadius="20dp"
+                android:bottomRightRadius="20dp"
+                android:topLeftRadius="20dp"
+                android:topRightRadius="20dp" />
+
+            <solid android:color="#4AC58E" />
+
+            <padding
+                android:bottom="10dp"
+                android:left="10dp"
+                android:right="10dp"
+                android:top="10dp" />
+
+
+        </shape>
+    </inset>
 
 </ripple>
 
 
-<!--<selector xmlns:android="http://schemas.android.com/apk/res/android">-->
-<!--<item android:state_pressed="true">-->
-    <!--<shape android:shape="rectangle">-->
-        <!--<solid android:color="@color/btnEndColorReg" />-->
-    <!--</shape>-->
-<!--</item>-->
-<!--<item android:state_focused="true">-->
-    <!--<shape android:shape="rectangle">-->
-        <!--<stroke android:color="@color/colorPrimaryDark" />-->
-    <!--</shape>-->
-<!--</item>-->
-<!--<item android:drawable="@color/colorAccent" />-->
-<!--</selector>-->
+    <!--<selector xmlns:android="http://schemas.android.com/apk/res/android">--><!--<item android:state_pressed="true">--><!--<shape android:shape="rectangle">--><!--<solid android:color="@color/btnEndColorReg" />--><!--</shape>--><!--</item>--><!--<item android:state_focused="true">--><!--<shape android:shape="rectangle">--><!--<stroke android:color="@color/colorPrimaryDark" />--><!--</shape>--><!--</item>--><!--<item android:drawable="@color/colorAccent" />--><!--</selector>-->

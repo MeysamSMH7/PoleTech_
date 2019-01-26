@@ -28,7 +28,7 @@ public class Activity_Login_PoleTech extends AppCompatActivity {
     private ImageView imgPhone, imgPass, imgTop, imgForgetPass;
 
     //public var
-    SharedPreferences preferencesLoginTech;
+    private SharedPreferences preferencesLoginTech;
 
 
     @Override

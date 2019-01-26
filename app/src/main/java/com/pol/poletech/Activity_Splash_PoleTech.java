@@ -58,7 +58,7 @@ public class Activity_Splash_PoleTech extends AppCompatActivity {
 
             }
 
-        }, 500);
+        }, 2000);
 
 
     }

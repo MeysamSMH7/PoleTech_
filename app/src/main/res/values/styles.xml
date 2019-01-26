@@ -6,4 +6,28 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="DialogWithAnim" parent="@android:style/Theme.Dialog">
+
+        <!-- Add anim -->
+        <item name="android:windowAnimationStyle">@style/PauseDialogAnimation</item>
+        <!-- fit screen -->
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <!-- width -->
+        <item name="android:layout_width">match_parent</item>
+        <!-- bg color -->
+        <item name="android:windowBackground">@color/colorBlue</item>
+        <!-- alert with tittle -->
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:windowIsFloating">false</item>-->
+
+    </style>
+
+    <!-- anim -->
+    <style name="PauseDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
 </resources>
